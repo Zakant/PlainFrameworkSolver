@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="PlainFrameworkSolver.Framework.FrameworkElement">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\FrameworkElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlainFrameworkSolver.Framework.ExternalForce">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+    <Position X="6.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Framework\ExternalForce.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlainFrameworkSolver.Framework.Force">
     <Position X="5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAAABAAAAAAAAAAAAAAQAAAAAAAAIA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAAAABAAAAAAAAAAAAAAQBEAAAAAAIA=</HashCode>
       <FileName>Framework\Force.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PlainFrameworkSolver.Framework.Node">
-    <Position X="0.75" Y="3" Width="1.5" />
+    <Position X="1.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIgAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\Node.cs</FileName>
@@ -31,9 +31,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="PlainFrameworkSolver.Framework.Bar">
-    <Position X="3.5" Y="4.5" Width="1.5" />
+    <Position X="3.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAIAAAAAAAAIA=</HashCode>
       <FileName>Framework\Bar.cs</FileName>
     </TypeIdentifier>
   </Class>

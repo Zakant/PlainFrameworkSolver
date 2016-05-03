@@ -6,9 +6,9 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public class Force : FrameworkElement, IDrawable
+    public abstract class Force : FrameworkElement, IDrawable
     {
-        public double Betrag { get; set; }
+        public double Betrag { get; }
 
         public Vector2 Richtung { get; set; }
 
@@ -16,9 +16,11 @@ namespace PlainFrameworkSolver.Framework
 
         public int Index { get; set; }
 
-        public Vector2 GetForceForNode()
+        public abstract Vector2 GetForceForNode(Node node);
+
+        protected Vector2 SplitToAxes()
         {
-            throw new System.NotImplementedException();
+            Richtung.Normalize()
         }
     }
 }
