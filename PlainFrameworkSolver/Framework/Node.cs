@@ -10,14 +10,17 @@ namespace PlainFrameworkSolver.Framework
     {
         public Point2D Position { get; protected set; }
 
+        public List<Force> Forces {get; protected set;} = new List<Force>();
+
         public void Attach(Force f)
         {
-            throw new System.NotImplementedException();
+            if(!Forces.Contains(f))
+              Forces.Add(f);
         }
 
         public void Detach(Force f)
         {
-            throw new System.NotImplementedException();
+            Forces.Remove(f);
         }
     }
 }
