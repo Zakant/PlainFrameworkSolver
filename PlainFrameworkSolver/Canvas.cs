@@ -11,7 +11,7 @@ namespace PlainFrameworkSolver
 {
     public class Canvas : Panel
     {
-        public PlainFramework CurrentFramework { get; set; }
+        // public PlainFramework CurrentFramework { get; set; }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {

@@ -3,16 +3,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public class Force
+    public class Force : FrameworkElement, IDrawable
     {
-        public Node Node { get; set; }
+        public double Betrag { get; set; }
 
-        public Vector2 Value { get; set; }
+        public Vector2 Richtung { get; set; }
 
-        public bool IsUnknown { get { return this.Value == Vector2.Zero; } }
+        public virtual bool IsForceKnown { get; set; }
+
+        public int Index { get; set; }
+
+        public Vector2 GetForceForNode()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

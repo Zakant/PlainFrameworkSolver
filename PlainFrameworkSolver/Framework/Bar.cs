@@ -1,21 +1,18 @@
-﻿using Artentus.Utils.Math;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public class Bar : FrameworkComponent
+    public class Bar : Force
     {
         public Node NodeA { get; set; }
 
         public Node NodeB { get; set; }
 
-        public Vector2 Vector { get { return NodeA.Point-NodeB.Point} }
+        public bool IsZeroBar => Betrag == 0;
 
-        public double Length { get { return Vector.} }
-   
+        public override bool IsForceKnown => true;
     }
 }
