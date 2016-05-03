@@ -14,6 +14,8 @@ namespace PlainFrameworkSolver.Framework
         public Node NodeB { get; set; }
 
         public Vector2 Vector { get { return NodeA.Point-NodeB.Point} }
+
+        public double Length { get { return Vector.} }
    
     }
 }

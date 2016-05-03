@@ -33,6 +33,7 @@ namespace Artentus
                 /// Gibt 2 zurück.
                 /// </summary>
                 public int Dimension { get { return 2; } }
+                public double Length { get { return System.Math.Sqrt(System.Math.Pow(X, 2) + System.Math.Pow(Y, 2)); } }
 
                 /// <summary>
                 /// Gibt die Koordinate an dem angegebenen Index zurück oder legt diese fest.
