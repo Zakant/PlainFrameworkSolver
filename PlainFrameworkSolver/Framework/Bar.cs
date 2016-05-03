@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artentus.Utils.Math;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,8 @@ namespace PlainFrameworkSolver.Framework
         public Node NodeA { get; set; }
 
         public Node NodeB { get; set; }
+
+        public Vector2 Vector { get { return NodeA.Point-NodeB.Point} }
+   
     }
 }

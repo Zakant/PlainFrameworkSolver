@@ -9,7 +9,7 @@ namespace PlainFrameworkSolver.Framework
 {
     public class Node : FrameworkComponent
     {
-        Point2D Point { get; set; }
+       public Point2D Point { get; set; }
 
     }
 }
