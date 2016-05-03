@@ -14,5 +14,10 @@ namespace PlainFrameworkSolver.Framework
         public bool IsZeroBar => Betrag == 0;
 
         public override bool IsForceKnown => false;
+
+        public void Draw(Graphics g, Rectangle boundary)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

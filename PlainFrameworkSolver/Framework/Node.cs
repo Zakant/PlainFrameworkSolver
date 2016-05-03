@@ -10,7 +10,7 @@ namespace PlainFrameworkSolver.Framework
     {
         public Point2D Position { get; protected set; }
 
-        public List<Force> Forces {get; protected set;} = new List<Force>();
+        public List<Force> Forces { get; protected set; } = new List<Force>();
 
         public void Attach(Force f)
         {
@@ -21,6 +21,11 @@ namespace PlainFrameworkSolver.Framework
         public void Detach(Force f)
         {
             Forces.Remove(f);
+        }
+
+        public void Draw(Graphics g, Rectangle boundary)
+        {
+            throw new NotImplementedException();
         }
     }
 }

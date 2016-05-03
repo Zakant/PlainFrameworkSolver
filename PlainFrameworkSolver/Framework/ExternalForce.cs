@@ -16,5 +16,10 @@ namespace PlainFrameworkSolver.Framework
             if(node != Target) return Vector2.Zero;
             return Richtung.Normelize() * Betrag;
         }
+
+        public void Draw(Graphics g, Rectangle boundary)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
