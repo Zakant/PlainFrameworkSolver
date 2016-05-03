@@ -7,16 +7,6 @@ namespace PlainFrameworkSolver.Framework
 {
     public abstract class FrameworkElement
     {
-        public string Name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public string Name { get; set; }
     }
 }
