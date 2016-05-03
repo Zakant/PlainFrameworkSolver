@@ -13,6 +13,6 @@ namespace PlainFrameworkSolver.Framework
 
         public bool IsZeroBar => Betrag == 0;
 
-        public override bool IsForceKnown => true;
+        public override bool IsForceKnown => false;
     }
 }

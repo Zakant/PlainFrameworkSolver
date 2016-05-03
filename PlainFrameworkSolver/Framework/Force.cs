@@ -16,11 +16,10 @@ namespace PlainFrameworkSolver.Framework
 
         public int Index { get; set; }
 
-        public abstract Vector2 GetForceForNode(Node node);
-
-        protected Vector2 SplitToAxes()
+        public virtual Vector2 GetForceForNode(Node node)
         {
-            Richtung.Normalize()
+            return Vector2.Zero;
         }
+
     }
 }
