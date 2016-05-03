@@ -14,7 +14,7 @@ namespace PlainFrameworkSolver.Framework
         public override Vector2 GetForceForNode(Node node)
         {
             if(node != Target) return Vector2.Zero;
-            return Richtung.Normelize() * Betrag;
+            return Richtung.Normalize() * Betrag;
         }
 
         public void Draw(Graphics g, Rectangle boundary)
