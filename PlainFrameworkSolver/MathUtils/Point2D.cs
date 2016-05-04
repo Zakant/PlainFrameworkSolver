@@ -129,6 +129,11 @@ namespace Artentus
                     return new PointF((float)X, (float)Y);
                 }
 
+                public bool IsNear(Point2D other,  double delta)
+                {
+                    return other.Y >= Y - delta && other.Y <= Y + delta && other.X >= X - delta && other.X <= X + delta;
+                }
+
                 /// <summary>
                 /// Berechnet das Vektorprodukt aus zwei Vektoren.
                 /// </summary>
