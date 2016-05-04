@@ -11,7 +11,7 @@ namespace PlainFrameworkSolver
 {
     public class Canvas : Panel
     {
-        // public PlainFramework CurrentFramework { get; set; }
+        public PlainFramework CurrentFramework { get; set; }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -22,7 +22,7 @@ namespace PlainFrameworkSolver
         static Pen penHighlight = new Pen(new SolidBrush(Color.Red), 5);
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
+            CurrentFramework?.Draw(e.Graphics, e.ClipRectangle);
         }
     }
 }

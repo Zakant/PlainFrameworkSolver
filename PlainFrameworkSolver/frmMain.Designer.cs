@@ -30,9 +30,9 @@
         {
             this.menueMain = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.beendenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvFramework = new System.Windows.Forms.TreeView();
@@ -66,12 +66,6 @@
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
-            // bearbeitenToolStripMenuItem
-            // 
-            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -82,6 +76,12 @@
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
             this.beendenToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
+            // 
+            // bearbeitenToolStripMenuItem
+            // 
+            this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
             // 
             // tableLayoutPanel1
             // 
@@ -136,6 +136,8 @@
             // 
             // canvas1
             // 
+            this.canvas1.AutoScroll = true;
+            this.canvas1.CurrentFramework = null;
             this.canvas1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.canvas1.Location = new System.Drawing.Point(3, 3);
             this.canvas1.Name = "canvas1";
@@ -149,6 +151,7 @@
             this.ClientSize = new System.Drawing.Size(594, 511);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menueMain);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menueMain;
             this.MinimumSize = new System.Drawing.Size(376, 330);
             this.Name = "frmMain";
