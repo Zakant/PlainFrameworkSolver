@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Artentus.Utils.Math;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -17,7 +19,7 @@ namespace PlainFrameworkSolver.Framework
             return Richtung.Normalize() * Betrag;
         }
 
-        public void Draw(Graphics g, Rectangle boundary)
+        public override void Draw(Graphics g, Rectangle boundary)
         {
             throw new NotImplementedException();
         }

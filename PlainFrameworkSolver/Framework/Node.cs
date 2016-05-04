@@ -1,6 +1,7 @@
 ﻿using Artentus.Utils.Math;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -14,8 +15,8 @@ namespace PlainFrameworkSolver.Framework
 
         public void Attach(Force f)
         {
-            if(!Forces.Contains(f))
-              Forces.Add(f);
+            if (!Forces.Contains(f))
+                Forces.Add(f);
         }
 
         public void Detach(Force f)
