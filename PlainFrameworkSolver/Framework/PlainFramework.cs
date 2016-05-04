@@ -21,9 +21,7 @@ namespace PlainFrameworkSolver.Framework
 
         public void Draw(Graphics g, Rectangle boundary)
         {
-            foreach (var x in Nodes) x.Draw(g, boundary);
-            foreach (var x in Bars) x.Draw(g, boundary);
-            foreach (var x in ExternalForces) x.Draw(g, boundary);
+            foreach (var e in getAll()) e.Draw(g, boundary);
         }
 
         public void Select(FrameworkElement element)
@@ -79,6 +77,11 @@ namespace PlainFrameworkSolver.Framework
         {
             var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
             var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
+        }
+
+        protected IEnumerable<FrameworkElement> getAll()
+        {
+            return Nodes.Cast<FrameworkElement>().Concat(Bars.Cast<FrameworkElement>()).Concat(ExternalForces.Cast<FrameworkElement>());
         }
     }
 }

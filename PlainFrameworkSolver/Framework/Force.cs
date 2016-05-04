@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public abstract class Force : FrameworkElement, IDrawable
+    public abstract class Force : FrameworkElement
     {
         public double ForceValue { get; }
 
@@ -18,7 +18,5 @@ namespace PlainFrameworkSolver.Framework
         public int Index { get; set; }
 
         public virtual Vector2 GetForceForNode(Node node) => Vector2.Zero;
-
-        public abstract void Draw(Graphics g, Rectangle boundary);
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public class Node : FrameworkElement, IDrawable
+    public class Node : FrameworkElement
     {
         public Point2D Position { get; protected set; }
 
@@ -24,7 +24,7 @@ namespace PlainFrameworkSolver.Framework
             Forces.Remove(f);
         }
 
-        public void Draw(Graphics g, Rectangle boundary)
+        public override void Draw(Graphics g, Rectangle boundary)
         {
             throw new NotImplementedException();
         }
