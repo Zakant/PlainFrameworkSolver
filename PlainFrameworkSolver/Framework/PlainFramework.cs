@@ -2,22 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public class PlainFramework : IDrawable
+    public class PlainFramework : IDrawable, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ObservableCollection<Bar> Bars { get; protected set; } = new ObservableCollection<Bar>();
 
         public ObservableCollection<ExternalForce> ExternalForces { get; protected set; } = new ObservableCollection<ExternalForce>();
 
         public ObservableCollection<Node> Nodes { get; protected set; } = new ObservableCollection<Node>();
 
-        public FrameworkElement Selected { get; protected set; }
+        private FrameworkElement _selected = null;
+        public FrameworkElement Selected { get { return _selected; } protected set { _selected = value; RaisePropertyChanged(); } }
 
         public void Draw(Graphics g, Rectangle boundary)
         {
@@ -33,21 +38,21 @@ namespace PlainFrameworkSolver.Framework
 
         public void RemoveElement(FrameworkElement element)
         {
-            if(element is Bar)
+            if (element is Bar)
             {
                 var b = (Bar)element;
                 b.NodeA?.Detach(b);
                 b.NodeB?.Detach(b);
                 Bars.Remove(b);
             }
-            else if(element is Node)
+            else if (element is Node)
             {
                 var n = (Node)element;
                 foreach (var f in n.Forces.ToList())
                     RemoveElement(f);
                 Nodes.Remove(n);
             }
-            else if(element is ExternalForce)
+            else if (element is ExternalForce)
             {
                 var e = (ExternalForce)element;
                 e.Target.Detach(e);
@@ -77,11 +82,18 @@ namespace PlainFrameworkSolver.Framework
         {
             var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
             var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
+            return nearBars.Cast<FrameworkElement>().Concat(nearBars.Cast<FrameworkElement>()).FirstOrDefault(); // Nicht schön aber selten....
         }
 
         protected IEnumerable<FrameworkElement> getAll()
         {
             return Nodes.Cast<FrameworkElement>().Concat(Bars.Cast<FrameworkElement>()).Concat(ExternalForces.Cast<FrameworkElement>());
+        }
+
+
+        private void RaisePropertyChanged([CallerMemberName]string name = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

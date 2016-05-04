@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlainFrameworkSolver.Framework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace PlainFrameworkSolver
 {
     public partial class frmMain : Form
     {
+        public PlainFramework CurrentFramework = new PlainFramework();
+
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            canvas.CurrentFramework = CurrentFramework;
         }
     }
 }

@@ -27,24 +27,40 @@ namespace PlainFrameworkSolver
         }
 
         protected Point2D _startPoint = Point2D.Zero;
+        protected Point2D _tempPoint = Point2D.Zero;
         protected Point2D _endPoint = Point2D.Zero;
         protected bool _isCreating = false;
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            _isCreating = true;
-            _startPoint = new Point2D(e.X, e.Y);
+            if (CurrentFramework != null)
+            {
+                _isCreating = true;
+                _startPoint = new Point2D(e.X, e.Y);
+            }
             base.OnMouseDown(e);
         }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            System.Diagnostics.Debug.Print("Mous move");
+            if(_isCreating)
+            {
+
+            }
             base.OnMouseMove(e);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            _endPoint = new Point2D(e.X, e.Y);
+            if (_isCreating)
+            {
+                _endPoint = new Point2D(e.X, e.Y);
+
+                _isCreating = false;
+                _startPoint = Point2D.Zero;
+                _endPoint = Point2D.Zero;
+                _tempPoint = Point2D.Zero;
+            }
             base.OnMouseUp(e);
         }
 

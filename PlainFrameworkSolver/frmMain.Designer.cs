@@ -36,8 +36,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvFramework = new System.Windows.Forms.TreeView();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.canvas1 = new PlainFrameworkSolver.Canvas();
+            this.propertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.canvas = new PlainFrameworkSolver.Canvas();
             this.menueMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -91,7 +91,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.canvas1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.canvas, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -113,7 +113,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.propertyGrid1);
+            this.splitContainer1.Panel2.Controls.Add(this.propertyGrid);
             this.splitContainer1.Size = new System.Drawing.Size(199, 481);
             this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.TabIndex = 0;
@@ -126,23 +126,23 @@
             this.tvFramework.Size = new System.Drawing.Size(199, 250);
             this.tvFramework.TabIndex = 0;
             // 
-            // propertyGrid1
+            // propertyGrid
             // 
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(199, 227);
-            this.propertyGrid1.TabIndex = 0;
+            this.propertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.propertyGrid.Name = "propertyGrid";
+            this.propertyGrid.Size = new System.Drawing.Size(199, 227);
+            this.propertyGrid.TabIndex = 0;
             // 
-            // canvas1
+            // canvas
             // 
-            this.canvas1.AutoScroll = true;
-            this.canvas1.CurrentFramework = null;
-            this.canvas1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.canvas1.Location = new System.Drawing.Point(3, 3);
-            this.canvas1.Name = "canvas1";
-            this.canvas1.Size = new System.Drawing.Size(383, 481);
-            this.canvas1.TabIndex = 1;
+            this.canvas.AutoScroll = true;
+            this.canvas.CurrentFramework = null;
+            this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.canvas.Location = new System.Drawing.Point(3, 3);
+            this.canvas.Name = "canvas";
+            this.canvas.Size = new System.Drawing.Size(383, 481);
+            this.canvas.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -156,6 +156,7 @@
             this.MinimumSize = new System.Drawing.Size(376, 330);
             this.Name = "frmMain";
             this.Text = "Plain Framework Solver";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menueMain.ResumeLayout(false);
             this.menueMain.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -178,8 +179,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView tvFramework;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
-        private Canvas canvas1;
+        private System.Windows.Forms.PropertyGrid propertyGrid;
+        private Canvas canvas;
     }
 }
 
