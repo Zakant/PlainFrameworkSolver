@@ -1,4 +1,5 @@
 ﻿using PlainFrameworkSolver.Framework;
+using PlainFrameworkSolver.Framework.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace PlainFrameworkSolver
 {
     public partial class frmMain : Form
     {
-        public PlainFramework CurrentFramework = new PlainFramework();
+        public PlainFramework CurrentFramework { get; set; } = new PlainFramework();
 
         public frmMain()
         {
@@ -23,6 +24,12 @@ namespace PlainFrameworkSolver
         private void frmMain_Load(object sender, EventArgs e)
         {
             canvas.CurrentFramework = CurrentFramework;
+            CurrentFramework.FrameworkSelectedChanged += FrameworkSelectedChangedHandler;
+        }
+
+        public void FrameworkSelectedChangedHandler(object sender, FrameworkSelectedElementChangedEventArgs e)
+        {
+            this.propertyGrid.SelectedObject = CurrentFramework.Selected;
         }
     }
 }

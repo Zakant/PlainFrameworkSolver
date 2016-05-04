@@ -1,5 +1,6 @@
 ﻿using Artentus.Utils.Math;
 using PlainFrameworkSolver.Framework;
+using PlainFrameworkSolver.Framework.Events;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +13,25 @@ namespace PlainFrameworkSolver
 {
     public class Canvas : Panel
     {
-        public PlainFramework CurrentFramework { get; set; }
+        private PlainFramework _currentFramework = null;
+        public PlainFramework CurrentFramework
+        {
+            get { return _currentFramework; }
+            set
+            {
+                if(_currentFramework != null)
+                {
+                    _currentFramework.FrameworkChanged -= HandleFrameworkChanged;
+                    _currentFramework.FrameworkSelectedChanged -= HandleFrameworkSelectedChanged;
+                }
+                _currentFramework = value;
+                if(_currentFramework != null)
+                {
+                    _currentFramework.FrameworkChanged += HandleFrameworkChanged;
+                    _currentFramework.FrameworkSelectedChanged += HandleFrameworkSelectedChanged;
+                }
+            }
+        }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -26,48 +45,26 @@ namespace PlainFrameworkSolver
             CurrentFramework?.Draw(e.Graphics, e.ClipRectangle);
         }
 
-        protected Point2D _startPoint = Point2D.Zero;
-        protected Point2D _tempPoint = Point2D.Zero;
-        protected Point2D _endPoint = Point2D.Zero;
-        protected bool _isCreating = false;
-
-        protected override void OnMouseDown(MouseEventArgs e)
+        protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
-            if (CurrentFramework != null)
-            {
-                _isCreating = true;
-                _startPoint = new Point2D(e.X, e.Y);
-            }
-            base.OnMouseDown(e);
+            var newNode = new Node();
+            newNode.Position = new Point2D(e.X, e.Y);
+            CurrentFramework?.AddElement(newNode);
+            CurrentFramework?.Select(newNode);
         }
 
-        protected override void OnMouseMove(MouseEventArgs e)
+        protected override void OnMouseClick(MouseEventArgs e)
         {
-            if(_isCreating)
-            {
-
-            }
-            base.OnMouseMove(e);
+            CurrentFramework?.Select(CurrentFramework?.getElementAt(new Point2D(e.X, e.Y)));
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
+        protected void HandleFrameworkChanged(object sender, FrameworkChangedEventArgs e)
         {
-            if (_isCreating)
-            {
-                _endPoint = new Point2D(e.X, e.Y);
 
-                _isCreating = false;
-                _startPoint = Point2D.Zero;
-                _endPoint = Point2D.Zero;
-                _tempPoint = Point2D.Zero;
-            }
-            base.OnMouseUp(e);
         }
-
-        protected override void OnMouseLeave(EventArgs e)
+        protected void HandleFrameworkSelectedChanged(object sender, FrameworkSelectedElementChangedEventArgs e)
         {
-            System.Diagnostics.Debug.Print("Mouse leave!");
-            base.OnMouseLeave(e);
+
         }
     }
 }

@@ -9,7 +9,9 @@ namespace PlainFrameworkSolver.Framework
 {
     public class Node : FrameworkElement
     {
-        public Point2D Position { get; protected set; }
+        const float RADIUS = 2;
+
+        public Point2D Position { get; set; }
 
         public List<Force> Forces { get; protected set; } = new List<Force>();
 
@@ -24,9 +26,11 @@ namespace PlainFrameworkSolver.Framework
             Forces.Remove(f);
         }
 
+        static Pen penBlack = new Pen(new SolidBrush(Color.Black));
+        static Pen penRed = new Pen(new SolidBrush(Color.Red));
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            throw new NotImplementedException();
+            g.DrawEllipse(IsSelected ? penRed : penBlack,(float)( Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
         }
     }
 }

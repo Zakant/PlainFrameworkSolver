@@ -1,4 +1,5 @@
 ﻿using Artentus.Utils.Math;
+using PlainFrameworkSolver.Framework.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,10 @@ namespace PlainFrameworkSolver.Framework
     public class PlainFramework : IDrawable, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public event EventHandler<FrameworkChangedEventArgs> FrameworkChanged;
+
+        public event EventHandler<FrameworkSelectedElementChangedEventArgs> FrameworkSelectedChanged;
 
         public ObservableCollection<Bar> Bars { get; protected set; } = new ObservableCollection<Bar>();
 
@@ -34,6 +39,7 @@ namespace PlainFrameworkSolver.Framework
             if (Selected != null) Selected.IsSelected = false;
             Selected = element;
             if (Selected != null) Selected.IsSelected = true;
+            RaiseSelectedChange(Selected);
         }
 
         public void RemoveElement(FrameworkElement element)
@@ -58,6 +64,7 @@ namespace PlainFrameworkSolver.Framework
                 e.Target.Detach(e);
                 ExternalForces.Remove(e);
             }
+            RaiseFrameworkChanged();
         }
 
         public void AddElement(FrameworkElement element)
@@ -76,6 +83,7 @@ namespace PlainFrameworkSolver.Framework
                 f.Target?.Attach(f);
                 ExternalForces.Add(f);
             }
+            RaiseFrameworkChanged();
         }
 
         public FrameworkElement getElementAt(Point2D point)
@@ -91,9 +99,17 @@ namespace PlainFrameworkSolver.Framework
         }
 
 
-        private void RaisePropertyChanged([CallerMemberName]string name = "")
+        protected void RaisePropertyChanged([CallerMemberName]string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        protected void RaiseFrameworkChanged()
+        {
+            FrameworkChanged?.Invoke(this, new FrameworkChangedEventArgs());
+        }
+        protected void RaiseSelectedChange(FrameworkElement element)
+        {
+            FrameworkSelectedChanged?.Invoke(this, new FrameworkSelectedElementChangedEventArgs(element));
         }
     }
 }
