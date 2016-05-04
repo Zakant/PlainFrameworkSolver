@@ -13,14 +13,11 @@ namespace PlainFrameworkSolver.Framework
 
         public Vector2 Richtung { get; set; }
 
-        public virtual bool IsForceKnown { get; set; }
+        public abstract bool IsForceKnown { get; }
 
         public int Index { get; set; }
 
-        public virtual Vector2 GetForceForNode(Node node)
-        {
-            return Vector2.Zero;
-        }
+        public virtual Vector2 GetForceForNode(Node node) => Vector2.Zero;
 
         public abstract void Draw(Graphics g, Rectangle boundary);
     }
