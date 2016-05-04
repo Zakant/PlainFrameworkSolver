@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artentus.Utils.Math;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
@@ -72,6 +73,12 @@ namespace PlainFrameworkSolver.Framework
                 f.Target?.Attach(f);
                 ExternalForces.Add(f);
             }
+        }
+
+        public FrameworkElement GetAtPosition(Point2D point)
+        {
+            var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
+            var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
         }
     }
 }
