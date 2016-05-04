@@ -9,6 +9,7 @@ namespace Artentus
     {
         namespace Math
         {
+#pragma warning disable 0660, 0661
             /// <summary>
             /// Ein zweidimensionaler Vektor.
             /// </summary>
@@ -130,7 +131,7 @@ namespace Artentus
                     return Vector.CheckForEquality(this, other);
                 }
 
-                public static bool  operator==(Vector2 left, Vector2 right)
+                public static bool operator ==(Vector2 left, Vector2 right)
                 {
                     return Vector.CheckForEquality(left, right);
                 }
@@ -164,6 +165,7 @@ namespace Artentus
                     return Vector.Multiply(value, skalar);
                 }
             }
+#pragma warning restore 0660, 0661
         }
     }
 }
