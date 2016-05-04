@@ -9,9 +9,9 @@ namespace PlainFrameworkSolver.Framework
 {
     public abstract class Force : FrameworkElement, IDrawable
     {
-        public double Betrag { get; }
+        public double ForceValue { get; }
 
-        public Vector2 Richtung { get; set; }
+        public Vector2 Direction { get; set; }
 
         public abstract bool IsForceKnown { get; }
 

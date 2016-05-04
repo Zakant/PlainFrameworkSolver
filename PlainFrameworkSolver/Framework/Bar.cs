@@ -12,7 +12,7 @@ namespace PlainFrameworkSolver.Framework
 
         public Node NodeB { get; set; }
 
-        public bool IsZeroBar => Betrag == 0;
+        public bool IsZeroBar => ForceValue == 0;
 
         public override bool IsForceKnown => false;
 
