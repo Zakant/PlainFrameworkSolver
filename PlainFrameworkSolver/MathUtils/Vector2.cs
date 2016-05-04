@@ -101,6 +101,16 @@ namespace Artentus
                 }
 
                 /// <summary>
+                /// Berechnet den Abstand eines Punktes zu einem Vektor.
+                /// </summary>
+                /// <param name="point">Der Punkt von dem der Abstand berechnet werden soll.</param>
+                public double GetDistance(Point2D point)
+                {
+                    var pVector = new Vector2(point.X, point.Y);
+                    return ((this.DotProduct(pVector) / this.DotProduct(this)) * this).Length;
+                }
+
+                /// <summary>
                 /// Berechnet das Vektorprodukt aus zwei Vektoren.
                 /// </summary>
                 public static double GetVectorProduct(Vector2 left, Vector2 right)
