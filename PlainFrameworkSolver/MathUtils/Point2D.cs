@@ -12,6 +12,8 @@ namespace Artentus
         {
             public struct Point2D : IVector
             {
+                public static Point2D Zero => new Point2D(0, 0);
+
                 /// <summary>
                 /// Die X-Koordinate.
                 /// </summary>
