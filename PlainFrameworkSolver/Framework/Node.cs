@@ -11,7 +11,12 @@ namespace PlainFrameworkSolver.Framework
     {
         const float RADIUS = 2;
 
-        public Point2D Position { get; set; }
+        private Point2D _position
+        public Point2D Position
+        {
+            get { return _position; }
+            set { _position = value; RaisePropertyChanged(); }
+        }
 
         public List<Force> Forces { get; protected set; } = new List<Force>();
 
@@ -19,18 +24,20 @@ namespace PlainFrameworkSolver.Framework
         {
             if (!Forces.Contains(f))
                 Forces.Add(f);
+            RaisePropertyChanged("Forces");
         }
 
         public void Detach(Force f)
         {
             Forces.Remove(f);
+            RaisePropertyChanged("Forces");
         }
 
         static Pen penBlack = new Pen(new SolidBrush(Color.Black));
         static Pen penRed = new Pen(new SolidBrush(Color.Red));
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            g.DrawEllipse(IsSelected ? penRed : penBlack,(float)( Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
+            g.DrawEllipse(IsSelected ? penRed : penBlack, (float)(Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
         }
     }
 }
