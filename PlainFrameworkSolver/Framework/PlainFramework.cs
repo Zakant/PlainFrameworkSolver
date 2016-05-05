@@ -90,7 +90,7 @@ namespace PlainFrameworkSolver.Framework
         {
             var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
             var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
-            return nearBars.Cast<FrameworkElement>().Concat(nearBars.Cast<FrameworkElement>()).FirstOrDefault(); // Nicht schön aber selten....
+            return nearNodes.Cast<FrameworkElement>().Concat(nearBars.Cast<FrameworkElement>()).FirstOrDefault(); // Nicht schön aber selten....
         }
 
         protected IEnumerable<FrameworkElement> getAll()

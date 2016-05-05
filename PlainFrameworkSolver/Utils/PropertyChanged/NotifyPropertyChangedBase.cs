@@ -35,6 +35,7 @@ namespace System.ComponentModel
         private HashSet<string> _buffer = new HashSet<string>();
 
         private bool _isPropertyChangedEnabled = true;
+        [Browsable(false)]
         public bool isPropertyChangedEnabled
         {
             get { return _isPropertyChangedEnabled; }

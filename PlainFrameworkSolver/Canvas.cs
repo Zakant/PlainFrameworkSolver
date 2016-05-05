@@ -60,11 +60,11 @@ namespace PlainFrameworkSolver
 
         protected void HandleFrameworkChanged(object sender, FrameworkChangedEventArgs e)
         {
-
+            this.Invalidate();
         }
         protected void HandleFrameworkSelectedChanged(object sender, FrameworkSelectedElementChangedEventArgs e)
         {
-
+            this.Invalidate();
         }
     }
 }
