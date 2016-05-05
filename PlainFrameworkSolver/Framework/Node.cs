@@ -11,7 +11,7 @@ namespace PlainFrameworkSolver.Framework
     {
         const float RADIUS = 2;
 
-        private Point2D _position
+        private Point2D _position;
         public Point2D Position
         {
             get { return _position; }
