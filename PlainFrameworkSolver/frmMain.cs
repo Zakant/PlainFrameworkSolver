@@ -44,7 +44,7 @@ namespace PlainFrameworkSolver
         public void FrameworkChangedHanlder(object sender, FrameworkChangedEventArgs e)
         {
             var element = e.Element;
-            switch(e.ChangeType)
+            switch (e.ChangeType)
             {
                 case FrameworkChangedType.Added:
                     var treeNode = new FrameworkTreeNode(element);
@@ -56,6 +56,13 @@ namespace PlainFrameworkSolver
                 case FrameworkChangedType.Removed:
                     break;
             }
+        }
+
+        private void tvFramework_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var entry = e.Node as FrameworkTreeNode;
+            if (entry == null) return;
+            CurrentFramework.Select(entry.Element);
         }
     }
 }

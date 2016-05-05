@@ -125,6 +125,7 @@
             this.tvFramework.Name = "tvFramework";
             this.tvFramework.Size = new System.Drawing.Size(199, 250);
             this.tvFramework.TabIndex = 0;
+            this.tvFramework.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvFramework_AfterSelect);
             // 
             // propertyGrid
             // 
