@@ -9,9 +9,19 @@ namespace PlainFrameworkSolver.Framework
 {
     public abstract class Force : FrameworkElement
     {
-        public double ForceValue { get; }
+        private double _forceValue;
+        public double ForceValue
+        {
+            get { return _forceValue; }
+            set { _forceValue = value; RaisePropertyChanged(); }
+        }
 
-        public Vector2 Direction { get; set; }
+        private Vector2 _direction;
+        public Vector2 Direction
+        {
+            get { return _direction; }
+            set { _direction = value; RaisePropertyChanged(); }
+        }
 
         public abstract bool IsForceKnown { get; }
 

@@ -8,19 +8,22 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
-    public abstract class FrameworkElement : IDrawable, INotifyPropertyChanged
+    public abstract class FrameworkElement : NotifyPropertyChangedBase, IDrawable
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; RaisePropertyChanged(); }
+        }
 
-        public string Name { get; set; }
-
-        public bool IsSelected { get; set; }
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set { _isSelected = value; RaisePropertyChanged(); }
+        }
 
         public abstract void Draw(Graphics g, Rectangle boundary);
-
-        protected void RaisePropertyChanged([CallerMemberName]string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
     }
 }
