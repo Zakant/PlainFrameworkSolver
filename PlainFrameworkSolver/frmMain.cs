@@ -1,5 +1,6 @@
 ﻿using PlainFrameworkSolver.Framework;
 using PlainFrameworkSolver.Framework.Events;
+using PlainFrameworkSolver.Framework.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,19 @@ namespace PlainFrameworkSolver
 
         public void FrameworkChangedHanlder(object sender, FrameworkChangedEventArgs e)
         {
-
+            var element = e.Element;
+            switch(e.ChangeType)
+            {
+                case FrameworkChangedType.Added:
+                    var treeNode = new FrameworkTreeNode(element);
+                    if (element is Bar) barsNode.Nodes.Add(treeNode);
+                    else if (element is ExternalForce) forcesNode.Nodes.Add(treeNode);
+                    else if (element is Node) nodesNode.Nodes.Add(treeNode);
+                    treeNode.EnsureVisible();
+                    break;
+                case FrameworkChangedType.Removed:
+                    break;
+            }
         }
     }
 }

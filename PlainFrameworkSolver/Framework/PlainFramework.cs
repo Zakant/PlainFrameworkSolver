@@ -29,6 +29,8 @@ namespace PlainFrameworkSolver.Framework
         private FrameworkElement _selected = null;
         public FrameworkElement Selected { get { return _selected; } protected set { _selected = value; RaisePropertyChanged(); } }
 
+        private int _nodeCounter = 0;
+
         public void Draw(Graphics g, Rectangle boundary)
         {
             foreach (var e in getAll()) e.Draw(g, boundary);
@@ -76,7 +78,11 @@ namespace PlainFrameworkSolver.Framework
                 b.NodeB?.Attach(b);
                 Bars.Add(b);
             }
-            else if (element is Node) Nodes.Add((Node)element);
+            else if (element is Node)
+            {
+                if (String.IsNullOrWhiteSpace(element.Name)) element.Name = $"Node {_nodeCounter++}";
+                Nodes.Add((Node)element);
+            }
             else if (element is ExternalForce)
             {
                 var f = (ExternalForce)element;
