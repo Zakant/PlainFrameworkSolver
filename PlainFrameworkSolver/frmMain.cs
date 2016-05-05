@@ -1,6 +1,7 @@
 ﻿using PlainFrameworkSolver.Framework;
 using PlainFrameworkSolver.Framework.Events;
 using PlainFrameworkSolver.Framework.Extensions;
+using PlainFrameworkSolver.Utils.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace PlainFrameworkSolver
         public void FrameworkSelectedChangedHandler(object sender, FrameworkSelectedElementChangedEventArgs e)
         {
             this.propertyGrid.SelectedObject = CurrentFramework.Selected;
+            tvFramework.SelectedNode = tvFramework.SelectNode<FrameworkTreeNode>(x => x.Element == CurrentFramework.Selected);
         }
 
         public void FrameworkChangedHanlder(object sender, FrameworkChangedEventArgs e)
