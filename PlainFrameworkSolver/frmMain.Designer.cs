@@ -126,6 +126,7 @@
             this.tvFramework.Size = new System.Drawing.Size(199, 250);
             this.tvFramework.TabIndex = 0;
             this.tvFramework.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvFramework_AfterSelect);
+            this.tvFramework.KeyDown += HandleKeyDown;
             // 
             // propertyGrid
             // 
@@ -152,7 +153,6 @@
             this.ClientSize = new System.Drawing.Size(594, 511);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menueMain);
-            this.KeyPreview = true;
             this.MainMenuStrip = this.menueMain;
             this.MinimumSize = new System.Drawing.Size(376, 330);
             this.Name = "frmMain";

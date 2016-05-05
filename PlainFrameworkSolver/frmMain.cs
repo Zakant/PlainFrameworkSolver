@@ -35,6 +35,7 @@ namespace PlainFrameworkSolver
             tvFramework.Nodes.Add(nodesNode);
             tvFramework.Nodes.Add(barsNode);
             tvFramework.Nodes.Add(forcesNode);
+            canvas.KeyDown += HandleKeyDown;
         }
 
         public void FrameworkSelectedChangedHandler(object sender, FrameworkSelectedElementChangedEventArgs e)
@@ -56,6 +57,7 @@ namespace PlainFrameworkSolver
                     treeNode.EnsureVisible();
                     break;
                 case FrameworkChangedType.Removed:
+                    tvFramework.SelectNode<FrameworkTreeNode>(x => x.Element == element)?.Remove();
                     break;
             }
         }
@@ -65,6 +67,12 @@ namespace PlainFrameworkSolver
             var entry = e.Node as FrameworkTreeNode;
             if (entry == null) return;
             CurrentFramework.Select(entry.Element);
+        }
+
+        private void HandleKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
+                CurrentFramework.RemoveElement(CurrentFramework.Selected);
         }
     }
 }

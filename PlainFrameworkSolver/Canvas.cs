@@ -13,6 +13,8 @@ namespace PlainFrameworkSolver
 {
     public class Canvas : Panel
     {
+        public new event EventHandler<KeyEventArgs> KeyDown;
+
         private PlainFramework _currentFramework = null;
         public PlainFramework CurrentFramework
         {
@@ -58,6 +60,12 @@ namespace PlainFrameworkSolver
             CurrentFramework?.Select(CurrentFramework?.getElementAt(new Point2D(e.X, e.Y)));
         }
 
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            KeyDown?.Invoke(this, e);
+            base.OnKeyDown(e);
+        }
+
         protected void HandleFrameworkChanged(object sender, FrameworkChangedEventArgs e)
         {
             this.Invalidate();
@@ -66,5 +74,7 @@ namespace PlainFrameworkSolver
         {
             this.Invalidate();
         }
+
+        
     }
 }
