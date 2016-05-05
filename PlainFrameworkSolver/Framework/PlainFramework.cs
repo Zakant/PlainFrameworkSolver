@@ -64,7 +64,7 @@ namespace PlainFrameworkSolver.Framework
                 e.Target.Detach(e);
                 ExternalForces.Remove(e);
             }
-            RaiseFrameworkChanged();
+            RaiseFrameworkChanged(FrameworkChangedType.Removed, element);
         }
 
         public void AddElement(FrameworkElement element)
@@ -83,7 +83,7 @@ namespace PlainFrameworkSolver.Framework
                 f.Target?.Attach(f);
                 ExternalForces.Add(f);
             }
-            RaiseFrameworkChanged();
+            RaiseFrameworkChanged(FrameworkChangedType.Added, element);
         }
 
         public FrameworkElement getElementAt(Point2D point)
@@ -103,9 +103,9 @@ namespace PlainFrameworkSolver.Framework
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        protected void RaiseFrameworkChanged()
+        protected void RaiseFrameworkChanged(FrameworkChangedType type, FrameworkElement element)
         {
-            FrameworkChanged?.Invoke(this, new FrameworkChangedEventArgs());
+            FrameworkChanged?.Invoke(this, new FrameworkChangedEventArgs(type, element));
         }
         protected void RaiseSelectedChange(FrameworkElement element)
         {

@@ -53,6 +53,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Framework\Events\FrameworkChangedEventArgs.cs" />
+    <Compile Include="Framework\Events\FrameworkChangedType.cs" />
     <Compile Include="Framework\Events\FrameworkSelectedElementChangedEventArgs.cs" />
     <Compile Include="Framework\Force.cs" />
     <Compile Include="Framework\ExternalForce.cs" />

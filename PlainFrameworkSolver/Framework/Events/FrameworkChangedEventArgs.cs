@@ -8,5 +8,14 @@ namespace PlainFrameworkSolver.Framework.Events
 {
     public class FrameworkChangedEventArgs : EventArgs
     {
+        public FrameworkChangedType ChangeType { get; protected set; }
+
+        public FrameworkElement Element { get; protected set; }
+
+        public FrameworkChangedEventArgs(FrameworkChangedType type, FrameworkElement element)
+        {
+            ChangeType = type;
+            Element = element;
+        }
     }
 }
