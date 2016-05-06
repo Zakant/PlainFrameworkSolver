@@ -35,8 +35,6 @@ namespace PlainFrameworkSolver.Framework
             Direction = NodeA.Position - NodeB.Position;
         }
 
-        static Pen penBlack = new Pen(new SolidBrush(Color.Black));
-        static Pen penRed = new Pen(new SolidBrush(Color.Red));
         public override void Draw(Graphics g, Rectangle boundary)
         {
             g.DrawLine(IsSelected ? penRed : penBlack, NodeA.Position.ToPointF(), NodeB.Position.ToPointF());

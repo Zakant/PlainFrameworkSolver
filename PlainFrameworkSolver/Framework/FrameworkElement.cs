@@ -26,5 +26,10 @@ namespace PlainFrameworkSolver.Framework
         }
 
         public abstract void Draw(Graphics g, Rectangle boundary);
+
+        protected static Pen penBlack = new Pen(new SolidBrush(Color.Black));
+        protected static Pen penRed = new Pen(new SolidBrush(Color.Red));
+        protected static Font font = new Font(FontFamily.GenericSansSerif, 9);
+
     }
 }
