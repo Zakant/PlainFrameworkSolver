@@ -81,8 +81,17 @@ namespace PlainFrameworkSolver
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left || CurrentFramework?.Selected == null) return;
-            _creatingBar = true;
-            _mousePos = e.Location;
+            if (Control.ModifierKeys.HasFlag(Keys.Shift))
+            {
+                var node = CurrentFramework?.Selected as Node;
+                if (node == null) return;
+                node.Position = e.Location;
+            }
+            else
+            {
+                _creatingBar = true;
+                _mousePos = e.Location;
+            }
             this.Invalidate();
         }
 
