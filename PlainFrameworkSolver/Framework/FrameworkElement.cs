@@ -18,6 +18,7 @@ namespace PlainFrameworkSolver.Framework
         }
 
         private bool _isSelected;
+        [Browsable(false)]
         public bool IsSelected
         {
             get { return _isSelected; }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace PlainFrameworkSolver.Framework
 {
@@ -25,6 +26,7 @@ namespace PlainFrameworkSolver.Framework
 
         public abstract bool IsForceKnown { get; }
 
+        [Browsable(false)]
         public int Index { get; set; }
 
         public virtual Vector2 GetForceForNode(Node node) => Vector2.Zero;
