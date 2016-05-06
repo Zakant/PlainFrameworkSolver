@@ -730,7 +730,7 @@ namespace Artentus
                 /// <summary>
                 /// Deserialisiert die angegebenen Daten in einen Rational.
                 /// </summary>
-                public Rational(SerializationInfo info, StreamingContext context)
+                private Rational(SerializationInfo info, StreamingContext context)
                     : this()
                 {
                     Numerator = (BigInteger)info.GetValue("Numerator", typeof(BigInteger));
