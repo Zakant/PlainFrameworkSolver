@@ -28,6 +28,13 @@ namespace PlainFrameworkSolver.Framework
 
         public override bool IsForceKnown => false;
 
+        public Bar(Node nodeA, Node nodeB)
+        {
+            NodeA = nodeA;
+            NodeB = nodeB;
+            Direction = NodeA.Position - NodeB.Position;
+        }
+
         public override void Draw(Graphics g, Rectangle boundary)
         {
             throw new NotImplementedException();
