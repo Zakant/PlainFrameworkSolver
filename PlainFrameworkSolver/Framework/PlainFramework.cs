@@ -100,7 +100,10 @@ namespace PlainFrameworkSolver.Framework
         {
             var nodeEntries = Nodes.Select(x => new { Element = x as FrameworkElement, Distance = x.Position.DistanceTo(point) });
             var barEntries = Bars.Select(x => new { Element = x as FrameworkElement, Distance = x.Direction.GetDistance(point) });
-            return nodeEntries.Concat(barEntries).OrderBy(x => x.Distance).FirstOrDefault()?.Element;
+            var element = nodeEntries.Concat(barEntries).OrderBy(x => x.Distance).FirstOrDefault();
+            if (element == null) return null;
+            if (element.Distance >= 10) return null;
+            return element.Element;
         }
 
         protected IEnumerable<FrameworkElement> getAll()
