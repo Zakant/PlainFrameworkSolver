@@ -30,6 +30,7 @@ namespace PlainFrameworkSolver.Framework
         public FrameworkElement Selected { get { return _selected; } protected set { _selected = value; RaisePropertyChanged(); } }
 
         private int _nodeCounter = 0;
+        private int _barCounter = 0;
 
         public void Draw(Graphics g, Rectangle boundary)
         {
@@ -73,6 +74,7 @@ namespace PlainFrameworkSolver.Framework
         {
             if (element is Bar)
             {
+                if (String.IsNullOrWhiteSpace(element.Name)) element.Name = $"Bar {_barCounter++}";
                 var b = (Bar)element;
                 b.NodeA?.Attach(b);
                 b.NodeB?.Attach(b);
