@@ -104,6 +104,7 @@ namespace Artentus
                 /// Berechnet den Abstand eines Punktes zu einem Vektor.
                 /// </summary>
                 /// <param name="point">Der Punkt von dem der Abstand berechnet werden soll.</param>
+                #warning Methode gibt falsche werte zurueck
                 public double GetDistance(Point2D point)
                 {
                     var pVector = new Vector2(point.X, point.Y);

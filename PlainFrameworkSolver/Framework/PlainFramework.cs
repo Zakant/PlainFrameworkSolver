@@ -98,9 +98,12 @@ namespace PlainFrameworkSolver.Framework
 
         public FrameworkElement getElementAt(Point2D point)
         {
-            var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
-            var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
-            return nearNodes.Cast<FrameworkElement>().Concat(nearBars.Cast<FrameworkElement>()).FirstOrDefault(); // Nicht schön aber selten....
+            var nodeEntries = Nodes.Select(x => new { Element = x as FrameworkElement, Distance = x.Position.DistanceTo(point) });
+            var barEntries = Bars.Select(x => new { Element = x as FrameworkElement, Distance = x.Direction.GetDistance(point) });
+            // var nearNodes = Nodes.Where(x => point.IsNear(x.Position, 10));
+            // var nearBars = Bars.Where(x => (x.NodeA.Position - x.NodeB.Position).GetDistance(point) <= 10);
+            return nodeEntries.Concat(barEntries).OrderBy(x => x.Distance).FirstOrDefault()?.Element;
+            // return nearNodes.Cast<FrameworkElement>().Concat(nearBars.Cast<FrameworkElement>()).FirstOrDefault(); // Nicht schön aber selten....
         }
 
         protected IEnumerable<FrameworkElement> getAll()
