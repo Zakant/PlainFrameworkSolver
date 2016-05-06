@@ -186,6 +186,15 @@ namespace Artentus
                 {
                     return Vector.Negate(value);
                 }
+
+                public static implicit operator Point2D(PointF point)
+                {
+                    return new Point2D(point.X, point.Y);
+                }
+                public static implicit operator Point2D(Point point)
+                {
+                    return new Point2D(point.X, point.Y);
+                }
             }
         }
     }
