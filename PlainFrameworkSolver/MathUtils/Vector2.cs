@@ -111,6 +111,11 @@ namespace Artentus
                     return (pVector - ((this.DotProduct(pVector) / this.DotProduct(this)) * this)).Length;
                 }
 
+                public override string ToString()
+                {
+                    return $"X: {X} Y:{Y}";
+                }
+
                 /// <summary>
                 /// Berechnet das Vektorprodukt aus zwei Vektoren.
                 /// </summary>

@@ -147,6 +147,11 @@ namespace Artentus
                     return System.Math.Abs((this - other).Length);
                 }
 
+                public override string ToString()
+                {
+                    return $"X: {X} Y:{Y}";
+                }
+
                 /// <summary>
                 /// Berechnet das Vektorprodukt aus zwei Vektoren.
                 /// </summary>
