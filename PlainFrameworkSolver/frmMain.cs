@@ -32,6 +32,7 @@ namespace PlainFrameworkSolver
             canvas.CurrentFramework = CurrentFramework;
             CurrentFramework.FrameworkSelectedChanged += FrameworkSelectedChangedHandler;
             CurrentFramework.FrameworkChanged += FrameworkChangedHanlder;
+            CurrentFramework.PropertyChanged += FrameworkPropertyChangedHandler;
             tvFramework.Nodes.Add(nodesNode);
             tvFramework.Nodes.Add(barsNode);
             tvFramework.Nodes.Add(forcesNode);
@@ -60,6 +61,11 @@ namespace PlainFrameworkSolver
                     tvFramework.SelectNode<FrameworkTreeNode>(x => x.Element == element)?.Remove();
                     break;
             }
+        }
+
+        public void FrameworkPropertyChangedHandler(object sender, PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == "Element_Name") canvas.Invalidate();
         }
 
         private void tvFramework_AfterSelect(object sender, TreeViewEventArgs e)

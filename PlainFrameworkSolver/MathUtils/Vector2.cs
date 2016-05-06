@@ -107,7 +107,7 @@ namespace Artentus
                 public double GetDistance(Point2D point)
                 {
                     var pVector = new Vector2(point.X, point.Y);
-                    return ((this.DotProduct(pVector) / this.DotProduct(this)) * this).Length;
+                    return (pVector - ((this.DotProduct(pVector) / this.DotProduct(this)) * this)).Length;
                 }
 
                 /// <summary>

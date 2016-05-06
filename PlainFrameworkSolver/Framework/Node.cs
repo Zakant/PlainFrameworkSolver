@@ -36,6 +36,7 @@ namespace PlainFrameworkSolver.Framework
         public override void Draw(Graphics g, Rectangle boundary)
         {
             g.DrawEllipse(IsSelected ? penRed : penBlack, (float)(Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
+            g.DrawString(Name, font, bBlack, (float)Position.X + RADIUS + 2, (float)Position.Y);
         }
     }
 }

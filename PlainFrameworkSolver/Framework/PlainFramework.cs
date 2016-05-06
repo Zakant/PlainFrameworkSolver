@@ -67,6 +67,7 @@ namespace PlainFrameworkSolver.Framework
                 e.Target.Detach(e);
                 ExternalForces.Remove(e);
             }
+            element.PropertyChanged -= HandleElementPropertyChanged;
             RaiseFrameworkChanged(FrameworkChangedType.Removed, element);
         }
 
@@ -91,6 +92,7 @@ namespace PlainFrameworkSolver.Framework
                 f.Target?.Attach(f);
                 ExternalForces.Add(f);
             }
+            element.PropertyChanged += HandleElementPropertyChanged;
             RaiseFrameworkChanged(FrameworkChangedType.Added, element);
         }
 
@@ -107,9 +109,14 @@ namespace PlainFrameworkSolver.Framework
         }
 
 
-        protected void RaisePropertyChanged([CallerMemberName]string name = "")
+        protected void HandleElementPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            if (args.PropertyName == "Name") RaisePropertyChanged("Element_Name", sender);
+        }
+
+        protected void RaisePropertyChanged([CallerMemberName]string name = "", object sender = null)
+        {
+            PropertyChanged?.Invoke(sender ?? this, new PropertyChangedEventArgs(name));
         }
         protected void RaiseFrameworkChanged(FrameworkChangedType type, FrameworkElement element)
         {
