@@ -21,18 +21,26 @@ namespace PlainFrameworkSolver
             get { return _currentFramework; }
             set
             {
-                if(_currentFramework != null)
+                if (_currentFramework != null)
                 {
                     _currentFramework.FrameworkChanged -= HandleFrameworkChanged;
                     _currentFramework.FrameworkSelectedChanged -= HandleFrameworkSelectedChanged;
                 }
                 _currentFramework = value;
-                if(_currentFramework != null)
+                if (_currentFramework != null)
                 {
                     _currentFramework.FrameworkChanged += HandleFrameworkChanged;
                     _currentFramework.FrameworkSelectedChanged += HandleFrameworkSelectedChanged;
                 }
             }
+        }
+
+        private bool _creatingBar = false;
+        private PointF _mousePos = PointF.Empty;
+
+        public Canvas()
+        {
+            this.DoubleBuffered = true;
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -41,10 +49,10 @@ namespace PlainFrameworkSolver
         }
 
         static Pen penLine = new Pen(new SolidBrush(Color.Black), 2);
-        static Pen penHighlight = new Pen(new SolidBrush(Color.Red), 5);
         protected override void OnPaint(PaintEventArgs e)
         {
             CurrentFramework?.Draw(e.Graphics, e.ClipRectangle);
+            if (_creatingBar && CurrentFramework?.Selected as Node != null) e.Graphics.DrawLine(penLine, ((Node)CurrentFramework.Selected).Position.ToPointF(), _mousePos);
         }
 
         protected override void OnMouseDoubleClick(MouseEventArgs e)
@@ -55,10 +63,29 @@ namespace PlainFrameworkSolver
             CurrentFramework?.Select(newNode);
         }
 
-        protected override void OnMouseClick(MouseEventArgs e)
+
+        protected override void OnMouseDown(MouseEventArgs e)
         {
             CurrentFramework?.Select(CurrentFramework?.getElementAt(new Point2D(e.X, e.Y)));
         }
+
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            var element = CurrentFramework?.getElementAt(e.Location) as Node;
+            if (element != null && element != CurrentFramework?.Selected)
+                CurrentFramework.AddElement(new Bar((Node)CurrentFramework.Selected, element));
+            _creatingBar = false;
+            this.Invalidate();
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left || CurrentFramework?.Selected == null) return;
+            _creatingBar = true;
+            _mousePos = e.Location;
+            this.Invalidate();
+        }
+
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
@@ -75,6 +102,6 @@ namespace PlainFrameworkSolver
             this.Invalidate();
         }
 
-        
+
     }
 }
