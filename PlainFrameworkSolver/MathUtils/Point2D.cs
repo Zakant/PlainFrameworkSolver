@@ -136,7 +136,15 @@ namespace Artentus
                 /// <param name="delta">Der maximale Abstand der Punkte in eine Koordinaten Richtung.</param>
                 public bool IsNear(Point2D other,  double delta)
                 {
-                    return other.Y >= Y - delta && other.Y <= Y + delta && other.X >= X - delta && other.X <= X + delta;
+                    return DistanceTo(other) <= delta;
+                }
+
+                /// <summary>
+                /// Berechnet den Abstand zwischen zwei Punkten.
+                /// </summary>
+                public double DistanceTo(Point2D other)
+                {
+                    return System.Math.Abs((this - other).Length);
                 }
 
                 /// <summary>
