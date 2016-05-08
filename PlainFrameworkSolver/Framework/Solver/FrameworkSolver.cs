@@ -18,6 +18,7 @@ namespace PlainFrameworkSolver.Framework.Solver
 
         public SquareMatrix CreateMatrix()
         {
+            throw new NotImplementedException();
         }
 
         public Dictionary<string, Rational> Solve()
