@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artentus.Utils.Math;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,11 @@ namespace PlainFrameworkSolver.Framework.Solver
             Framework = framework;
         }
 
-        public void CreateMatrix()
+        public SquareMatrix CreateMatrix()
         {
         }
 
-        public Dictionary<string, double> Solve()
+        public Dictionary<string, Rational> Solve()
         {
             throw new NotImplementedException();
         }
