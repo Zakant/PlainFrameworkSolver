@@ -14,17 +14,10 @@ namespace System.ComponentModel
         protected void RaisePropertyChanged([CallerMemberName] string name = "")
         {
             if (isPropertyChangedEnabled)
-            {
-                var myevent = PropertyChanged;
-                if (myevent != null)
-                    myevent(this, new PropertyChangedEventArgs(name));
-            }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
             else
-            {
                 _buffer.Add(name);
-            }
             HandleDependencies(name);
-
         }
 
         protected void StartInThread(ThreadStart threadStart)
