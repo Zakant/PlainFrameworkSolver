@@ -65,7 +65,7 @@ namespace PlainFrameworkSolver
 
         public void FrameworkPropertyChangedHandler(object sender, PropertyChangedEventArgs args)
         {
-            if (args.PropertyName == "Element_Name") canvas.Invalidate();
+            canvas.Invalidate();
         }
 
         private void tvFramework_AfterSelect(object sender, TreeViewEventArgs e)

@@ -15,10 +15,21 @@ namespace PlainFrameworkSolver.Framework
         public Point2D Position
         {
             get { return _position; }
-            set { _position = value; RaisePropertyChanged(); }
+            set
+            {
+                _position.PropertyChanged -= HandlePositionChanged;
+                _position = value;
+                _position.PropertyChanged += HandlePositionChanged;
+                RaisePropertyChanged();
+            }
         }
 
         public List<Force> Forces { get; protected set; } = new List<Force>();
+
+        public Node()
+        {
+            _position = Point2D.Zero;
+        }
 
         public void Attach(Force f)
         {
@@ -38,5 +49,7 @@ namespace PlainFrameworkSolver.Framework
             g.DrawEllipse(IsSelected ? penRed : penBlack, (float)(Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
             g.DrawString(Name, font, bBlack, (float)Position.X + RADIUS + 2, (float)Position.Y);
         }
+
+        protected void HandlePositionChanged(object sender, EventArgs args) => RaisePropertyChanged("Position");
     }
 }

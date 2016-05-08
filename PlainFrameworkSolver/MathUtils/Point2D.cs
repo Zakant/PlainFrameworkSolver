@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.ComponentModel;
+using PlainFrameworkSolver.Utils.Converter;
+using System.Runtime.CompilerServices;
 
 namespace Artentus
 {
@@ -10,23 +13,29 @@ namespace Artentus
     {
         namespace Math
         {
-            public struct Point2D : IVector
+            [TypeConverter(typeof(Point2DConverter))]
+            public struct Point2D : IVector, INotifyPropertyChanged
             {
                 public static Point2D Zero => new Point2D(0, 0);
 
+                public event PropertyChangedEventHandler PropertyChanged;
+
+
+                private double x, y;
                 /// <summary>
                 /// Die X-Koordinate.
                 /// </summary>
-                public double X { get; set; }
+                public double X { get { return x; } set { x = value; RaisePropertyChanged(); } }
 
                 /// <summary>
                 /// Die Y-Koordinate.
                 /// </summary>
-                public double Y { get; set; }
+                public double Y { get { return y; } set { y = value; RaisePropertyChanged(); } }
 
                 /// <summary>
                 /// Gibt 2 zurück.
                 /// </summary>
+                [Browsable(false)]
                 public int Dimension { get { return 2; } }
 
                 /// <summary>
@@ -104,7 +113,7 @@ namespace Artentus
 
                 /// <summary>
                 /// Gibt das Kreuzprodukt dieses Vektors zurück.
-                /// </summary>
+                [Browsable(false)]
                 public Point2D CrossProduct
                 {
                     get
@@ -134,7 +143,7 @@ namespace Artentus
                 /// </summary>
                 /// <param name="other">Der zu prüfende Punkt.</param>
                 /// <param name="delta">Der maximale Abstand der Punkte in eine Koordinaten Richtung.</param>
-                public bool IsNear(Point2D other,  double delta)
+                public bool IsNear(Point2D other, double delta)
                 {
                     return DistanceTo(other) <= delta;
                 }
@@ -150,6 +159,12 @@ namespace Artentus
                 public override string ToString()
                 {
                     return $"X: {X} Y:{Y}";
+                }
+
+                private void RaisePropertyChanged([CallerMemberName] string name = "")
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
                 }
 
                 /// <summary>

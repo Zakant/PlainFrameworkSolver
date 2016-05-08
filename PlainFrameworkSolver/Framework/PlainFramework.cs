@@ -115,6 +115,7 @@ namespace PlainFrameworkSolver.Framework
         protected void HandleElementPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             if (args.PropertyName == "Name") RaisePropertyChanged("Element_Name", sender);
+            if (args.PropertyName == "Position") RaisePropertyChanged("Element_Positon", sender);
         }
 
         protected void RaisePropertyChanged([CallerMemberName]string name = "", object sender = null)
