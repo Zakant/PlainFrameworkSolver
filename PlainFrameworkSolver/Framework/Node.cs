@@ -44,6 +44,11 @@ namespace PlainFrameworkSolver.Framework
             RaisePropertyChanged("Forces");
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
         public override void Draw(Graphics g, Rectangle boundary)
         {
             g.DrawEllipse(IsSelected ? penRed : penBlack, (float)(Position.X - RADIUS), (float)(Position.Y - RADIUS), RADIUS * 2, RADIUS * 2);
