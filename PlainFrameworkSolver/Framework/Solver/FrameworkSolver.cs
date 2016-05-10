@@ -21,7 +21,7 @@ namespace PlainFrameworkSolver.Framework.Solver
 
         public void UpdateIndex()
         {
-            var forces = Framework.Bars.Cast<Force>().Concat(Framework.ExternalForces.Cast<Force>()).ToList();
+            var forces = Framework.Bars.Cast<Force>().Concat(Framework.ExternalForces.Cast<Force>()).Where(x => !x.IsForceKnown).ToList();
             Index = new FrameworkIndex(forces);
         }
 
