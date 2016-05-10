@@ -26,9 +26,6 @@ namespace PlainFrameworkSolver.Framework
 
         public abstract bool IsForceKnown { get; }
 
-        [Browsable(false)]
-        public int Index { get; set; }
-
         public virtual Vector2 GetForceForNode(Node node) => Vector2.Zero;
     }
 }

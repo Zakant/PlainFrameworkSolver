@@ -61,7 +61,9 @@
     <Compile Include="Framework\ExternalForce.cs" />
     <Compile Include="Framework\FrameworkElement.cs" />
     <Compile Include="Framework\PlainFramework.cs" />
+    <Compile Include="Framework\Solver\FrameworkIndex.cs" />
     <Compile Include="Framework\Solver\FrameworkSolver.cs" />
+    <Compile Include="Framework\Solver\NodeSolverExtension.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
