@@ -13,6 +13,8 @@ namespace PlainFrameworkSolver
 {
     public class Canvas : Panel
     {
+        const int GridSize = 20;
+
         public new event EventHandler<KeyEventArgs> KeyDown;
 
         private PlainFramework _currentFramework = null;
@@ -35,17 +37,38 @@ namespace PlainFrameworkSolver
             }
         }
 
+        private bool _gridEnabled = true;
+        public bool GridEnabled
+        {
+            get { return _gridEnabled; }
+            set { _gridEnabled = value; this.Invalidate(); }
+        }
+
         private bool _creatingBar = false;
         private PointF _mousePos = PointF.Empty;
+        private Pen pGrid = new Pen(new SolidBrush(Color.FromArgb(50, 20, 20, 20)), 0.5f);
 
         public Canvas()
         {
             this.DoubleBuffered = true;
         }
 
+        protected Point2D translatePoint(Point2D p)
+        {
+            if (!GridEnabled) return p;
+            return new Point2D(Math.Round(p.X / GridSize, 0) * GridSize, Math.Round(p.Y / GridSize, 0) * GridSize);
+        }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(new SolidBrush(System.Drawing.Color.White), e.ClipRectangle);
+            e.Graphics.FillRectangle(new SolidBrush(Color.White), e.ClipRectangle);
+            if (GridEnabled)
+            {
+                for (int x = 0; x <= this.Width; x += GridSize)
+                    e.Graphics.DrawLine(pGrid, x, 0, x, this.Height);
+                for (int y = 0; y <= this.Height; y += GridSize)
+                    e.Graphics.DrawLine(pGrid, 0, y, this.Width, y);
+            }
         }
 
         static Pen penLine = new Pen(new SolidBrush(Color.Black), 2);
@@ -58,7 +81,7 @@ namespace PlainFrameworkSolver
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
             var newNode = new Node();
-            newNode.Position = new Point2D(e.X, e.Y);
+            newNode.Position = translatePoint(new Point2D(e.X, e.Y));
             CurrentFramework?.AddElement(newNode);
             CurrentFramework?.Select(newNode);
         }
@@ -85,7 +108,7 @@ namespace PlainFrameworkSolver
             {
                 var node = CurrentFramework?.Selected as Node;
                 if (node == null) return;
-                node.Position = e.Location;
+                node.Position = translatePoint(e.Location);
             }
             else
             {
