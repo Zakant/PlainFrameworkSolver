@@ -25,6 +25,9 @@ namespace PlainFrameworkSolver.Framework
             set { _isSelected = value; RaisePropertyChanged(); }
         }
 
+        [Browsable(false)]
+        public PlainFramework HostFramework { get; set; }
+
         public abstract void Draw(Graphics g, Rectangle boundary);
 
         protected static Brush bBlack = new SolidBrush(Color.Black);
@@ -32,7 +35,7 @@ namespace PlainFrameworkSolver.Framework
         protected static Pen penBlack = new Pen(bBlack);
         protected static Pen penRed = new Pen(bRed);
         protected static Font font = new Font(FontFamily.GenericSansSerif, 9);
-        
+
 
     }
 }

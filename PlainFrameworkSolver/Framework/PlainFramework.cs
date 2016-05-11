@@ -93,6 +93,7 @@ namespace PlainFrameworkSolver.Framework
                 ExternalForces.Add(f);
             }
             element.PropertyChanged += HandleElementPropertyChanged;
+            element.HostFramework = this;
             RaiseFrameworkChanged(FrameworkChangedType.Added, element);
         }
 
