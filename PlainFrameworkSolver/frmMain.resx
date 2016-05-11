@@ -120,4 +120,12 @@
   <metadata name="menueMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="gridToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAEpJREFUOE9jGDzg27dv/0nBUG0IABJ0cnIiCuM14MP7j2CMj01bA4jBtHUBLk3I
+        bLwGEINp6wJcmpDZeA0gBuM0gBQM1TbggIEBACHppRinEJ3eAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

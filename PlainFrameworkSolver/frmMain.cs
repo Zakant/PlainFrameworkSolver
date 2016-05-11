@@ -85,5 +85,10 @@ namespace PlainFrameworkSolver
         {
             canvas.GridEnabled = gridToolStripMenuItem.CheckState == CheckState.Checked;
         }
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
