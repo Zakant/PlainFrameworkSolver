@@ -25,6 +25,7 @@ namespace PlainFrameworkSolver
         public frmMain()
         {
             InitializeComponent();
+            canvas.Select();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

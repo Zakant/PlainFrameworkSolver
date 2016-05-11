@@ -161,7 +161,7 @@
             this.canvas.Location = new System.Drawing.Point(3, 3);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(383, 481);
-            this.canvas.TabIndex = 1;
+            this.canvas.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -170,7 +170,6 @@
             this.ClientSize = new System.Drawing.Size(594, 511);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menueMain);
-            this.KeyPreview = true;
             this.MainMenuStrip = this.menueMain;
             this.MinimumSize = new System.Drawing.Size(376, 330);
             this.Name = "frmMain";
