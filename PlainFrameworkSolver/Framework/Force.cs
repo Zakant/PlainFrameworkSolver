@@ -18,7 +18,7 @@ namespace PlainFrameworkSolver.Framework
         }
 
         private Vector2 _direction;
-        public Vector2 Direction
+        public virtual Vector2 Direction
         {
             get { return _direction; }
             set { _direction = value; RaisePropertyChanged(); }

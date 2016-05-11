@@ -100,6 +100,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Converter\Point2DConverter.cs" />
+    <Compile Include="Utils\Editor\NodeEditor.cs" />
     <Compile Include="Utils\Extensions\TreeViewExtensions.cs" />
     <Compile Include="Utils\PropertyChanged\DependsOnAttribute.cs" />
     <Compile Include="Utils\PropertyChanged\NotifyPropertyChangedBase.cs" />
@@ -115,7 +116,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Framework\Raft.cd" />
     <None Include="Properties\DataSources\frmMain.datasource" />
     <None Include="Properties\DataSources\PlainFrameworkSolver.Framework.PlainFramework.datasource" />
     <None Include="Properties\Settings.settings">
