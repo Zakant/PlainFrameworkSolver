@@ -45,7 +45,6 @@ namespace PlainFrameworkSolver.Framework
         {
             NodeA = nodeA;
             NodeB = nodeB;
-            Direction = NodeA.Position - NodeB.Position;
         }
 
         public override void Draw(Graphics g, Rectangle boundary)
