@@ -37,6 +37,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvFramework = new System.Windows.Forms.TreeView();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvas = new PlainFrameworkSolver.Canvas();
             this.menueMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -63,8 +64,8 @@
             this.toolStripSeparator1,
             this.beendenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.dateiToolStripMenuItem.Text = "Datei";
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.dateiToolStripMenuItem.Text = "File";
             // 
             // toolStripSeparator1
             // 
@@ -79,9 +80,11 @@
             // 
             // bearbeitenToolStripMenuItem
             // 
+            this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gridToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.bearbeitenToolStripMenuItem.Text = "Edit";
             // 
             // tableLayoutPanel1
             // 
@@ -126,7 +129,6 @@
             this.tvFramework.Size = new System.Drawing.Size(199, 250);
             this.tvFramework.TabIndex = 0;
             this.tvFramework.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvFramework_AfterSelect);
-            this.tvFramework.KeyDown += HandleKeyDown;
             // 
             // propertyGrid
             // 
@@ -136,11 +138,22 @@
             this.propertyGrid.Size = new System.Drawing.Size(199, 227);
             this.propertyGrid.TabIndex = 0;
             // 
+            // gridToolStripMenuItem
+            // 
+            this.gridToolStripMenuItem.Checked = true;
+            this.gridToolStripMenuItem.CheckOnClick = true;
+            this.gridToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.gridToolStripMenuItem.Name = "gridToolStripMenuItem";
+            this.gridToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gridToolStripMenuItem.Text = "Grid";
+            this.gridToolStripMenuItem.CheckedChanged += new System.EventHandler(this.gridToolStripMenuItem_CheckedChanged);
+            // 
             // canvas
             // 
             this.canvas.AutoScroll = true;
             this.canvas.CurrentFramework = null;
             this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.canvas.GridEnabled = true;
             this.canvas.Location = new System.Drawing.Point(3, 3);
             this.canvas.Name = "canvas";
             this.canvas.Size = new System.Drawing.Size(383, 481);
@@ -182,6 +195,7 @@
         private System.Windows.Forms.TreeView tvFramework;
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private Canvas canvas;
+        private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem;
     }
 }
 

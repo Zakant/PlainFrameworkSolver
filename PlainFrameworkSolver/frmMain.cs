@@ -80,5 +80,10 @@ namespace PlainFrameworkSolver
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
                 CurrentFramework.RemoveElement(CurrentFramework.Selected);
         }
+
+        private void gridToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            canvas.GridEnabled = gridToolStripMenuItem.CheckState == CheckState.Checked;
+        }
     }
 }
