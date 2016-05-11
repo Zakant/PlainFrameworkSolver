@@ -71,13 +71,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Image = global::PlainFrameworkSolver.Properties.Resources.CloseImage;
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.beendenToolStripMenuItem.Text = "Close";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -170,6 +170,7 @@
             this.ClientSize = new System.Drawing.Size(594, 511);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menueMain);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menueMain;
             this.MinimumSize = new System.Drawing.Size(376, 330);
             this.Name = "frmMain";

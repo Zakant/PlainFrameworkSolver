@@ -80,6 +80,7 @@ namespace PlainFrameworkSolver
 
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left) return;
             var newNode = new Node();
             newNode.Position = translatePoint(new Point2D(e.X, e.Y));
             CurrentFramework?.AddElement(newNode);
@@ -89,11 +90,13 @@ namespace PlainFrameworkSolver
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left) return;
             CurrentFramework?.Select(CurrentFramework?.getElementAt(new Point2D(e.X, e.Y)));
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left) return;
             var element = CurrentFramework?.getElementAt(e.Location) as Node;
             if (element != null && element != CurrentFramework?.Selected && CurrentFramework?.Selected is Node)
                 CurrentFramework.AddElement(new Bar((Node)CurrentFramework.Selected, element));
@@ -117,7 +120,6 @@ namespace PlainFrameworkSolver
             }
             this.Invalidate();
         }
-
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
