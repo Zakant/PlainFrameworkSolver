@@ -72,7 +72,7 @@ namespace PlainFrameworkSolver
         protected override void OnMouseUp(MouseEventArgs e)
         {
             var element = CurrentFramework?.getElementAt(e.Location) as Node;
-            if (element != null && element != CurrentFramework?.Selected)
+            if (element != null && element != CurrentFramework?.Selected && CurrentFramework?.Selected is Node)
                 CurrentFramework.AddElement(new Bar((Node)CurrentFramework.Selected, element));
             _creatingBar = false;
             this.Invalidate();

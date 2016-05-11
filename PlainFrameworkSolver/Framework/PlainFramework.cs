@@ -99,11 +99,11 @@ namespace PlainFrameworkSolver.Framework
 
         public FrameworkElement getElementAt(Point2D point)
         {
-            var nodeEntries = Nodes.Select(x => new { Element = x as FrameworkElement, Distance = x.Position.DistanceTo(point) });
-            var barEntries = Bars.Select(x => new { Element = x as FrameworkElement, Distance = x.Direction.GetDistance(point) });
-            var element = nodeEntries.Concat(barEntries).OrderBy(x => x.Distance).FirstOrDefault();
+            var nodeEntries = Nodes.Select(x => new { Element = x as FrameworkElement, Distance = x.Position.DistanceTo(point) }).Where(x => x.Distance <= 10);
+            var barEntries = Bars.Select(x => new { Element = x as FrameworkElement, Distance = x.Direction.GetDistance(point, x.NodeA.Position) }).Where(x => x.Distance <= 10);
+
+            var element = nodeEntries.OrderBy(x => x.Distance).FirstOrDefault() ?? barEntries.OrderBy(x => x.Distance).FirstOrDefault();
             if (element == null) return null;
-            if (element.Distance >= 10) return null;
             return element.Element;
         }
 
