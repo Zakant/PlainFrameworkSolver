@@ -50,6 +50,8 @@ namespace PlainFrameworkSolver.Framework
         public override void Draw(Graphics g, Rectangle boundary)
         {
             g.DrawLine(IsSelected ? penRed : penBlack, NodeA.Position.ToPointF(), NodeB.Position.ToPointF());
+
+            g.DrawString(Name, font, bBlack, (NodeA.Position + Direction * 0.5).ToPointF());
         }
     }
 }
