@@ -21,6 +21,10 @@ namespace PlainFrameworkSolver
         public frmCreateForce()
         {
             InitializeComponent();
+            nupX.Maximum = decimal.MaxValue;
+            nupX.Minimum = decimal.MinValue;
+            nupY.Maximum = decimal.MaxValue;
+            nupY.Minimum = decimal.MinValue;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
