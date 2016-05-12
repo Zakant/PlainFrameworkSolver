@@ -135,7 +135,10 @@ namespace PlainFrameworkSolver
             if (args.Button == MouseButtons.Right)
             {
                 if (CurrentFramework.getElementAt(args.Location) is Node)
+                {
+                    CurrentFramework.Select(CurrentFramework.getElementAt(args.Location));
                     ContextMenue.Show(this, args.Location);
+                }
             }
             base.OnClick(e);
         }

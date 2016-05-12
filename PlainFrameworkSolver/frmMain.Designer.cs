@@ -161,13 +161,14 @@
             this.canvasContextMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createForceToolStripMenuItem});
             this.canvasContextMenue.Name = "canvasContextMenue";
-            this.canvasContextMenue.Size = new System.Drawing.Size(141, 26);
+            this.canvasContextMenue.Size = new System.Drawing.Size(153, 48);
             // 
             // createForceToolStripMenuItem
             // 
             this.createForceToolStripMenuItem.Name = "createForceToolStripMenuItem";
-            this.createForceToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.createForceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createForceToolStripMenuItem.Text = "Create Force";
+            this.createForceToolStripMenuItem.Click += new System.EventHandler(this.createForceToolStripMenuItem_Click);
             // 
             // canvas
             // 

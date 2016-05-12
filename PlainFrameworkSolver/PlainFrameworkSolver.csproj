@@ -64,6 +64,12 @@
     <Compile Include="Framework\Solver\FrameworkIndex.cs" />
     <Compile Include="Framework\Solver\FrameworkSolver.cs" />
     <Compile Include="Framework\Solver\NodeSolverExtension.cs" />
+    <Compile Include="frmCreateForce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateForce.Designer.cs">
+      <DependentUpon>frmCreateForce.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Utils\Extensions\TreeViewExtensions.cs" />
     <Compile Include="Utils\PropertyChanged\DependsOnAttribute.cs" />
     <Compile Include="Utils\PropertyChanged\NotifyPropertyChangedBase.cs" />
+    <EmbeddedResource Include="frmCreateForce.resx">
+      <DependentUpon>frmCreateForce.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

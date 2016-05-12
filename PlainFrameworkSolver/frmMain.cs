@@ -91,5 +91,12 @@ namespace PlainFrameworkSolver
         {
             Application.Exit();
         }
+
+        private void createForceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var forceDialog = new frmCreateForce() { CurrentFramework = CurrentFramework };
+            if (forceDialog.ShowDialog() == DialogResult.OK)
+                CurrentFramework.AddElement(forceDialog.ResultForce);
+        }
     }
 }
