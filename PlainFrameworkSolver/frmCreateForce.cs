@@ -29,6 +29,7 @@ namespace PlainFrameworkSolver
             var f = (new Vector2((double)nupX.Value, (double)nupY.Value));
             ResultForce.Direction = f.Normalize();
             ResultForce.ForceValue = f.Length;
+            ResultForce.Target = (Node)CurrentFramework.Selected;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
