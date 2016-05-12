@@ -31,6 +31,7 @@ namespace PlainFrameworkSolver.Framework
 
         private int _nodeCounter = 0;
         private int _barCounter = 0;
+        private int _forceCounter = 0;
 
         public void Draw(Graphics g, Rectangle boundary)
         {
@@ -88,6 +89,7 @@ namespace PlainFrameworkSolver.Framework
             }
             else if (element is ExternalForce)
             {
+                if (String.IsNullOrWhiteSpace(element.Name)) element.Name = $"Force {_forceCounter++}";
                 var f = (ExternalForce)element;
                 f.Target?.Attach(f);
                 ExternalForces.Add(f);
