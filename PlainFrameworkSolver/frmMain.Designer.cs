@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menueMain = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvFramework = new System.Windows.Forms.TreeView();
             this.propertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.canvasContextMenue = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createForceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvas = new PlainFrameworkSolver.Canvas();
             this.menueMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -46,6 +49,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.canvasContextMenue.SuspendLayout();
             this.SuspendLayout();
             // 
             // menueMain
@@ -152,9 +156,23 @@
             this.propertyGrid.Size = new System.Drawing.Size(199, 227);
             this.propertyGrid.TabIndex = 0;
             // 
+            // canvasContextMenue
+            // 
+            this.canvasContextMenue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createForceToolStripMenuItem});
+            this.canvasContextMenue.Name = "canvasContextMenue";
+            this.canvasContextMenue.Size = new System.Drawing.Size(141, 26);
+            // 
+            // createForceToolStripMenuItem
+            // 
+            this.createForceToolStripMenuItem.Name = "createForceToolStripMenuItem";
+            this.createForceToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.createForceToolStripMenuItem.Text = "Create Force";
+            // 
             // canvas
             // 
             this.canvas.AutoScroll = true;
+            this.canvas.ContextMenue = this.canvasContextMenue;
             this.canvas.CurrentFramework = null;
             this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.canvas.GridEnabled = true;
@@ -182,6 +200,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.canvasContextMenue.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +219,8 @@
         private System.Windows.Forms.PropertyGrid propertyGrid;
         private Canvas canvas;
         private System.Windows.Forms.ToolStripMenuItem gridToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip canvasContextMenue;
+        private System.Windows.Forms.ToolStripMenuItem createForceToolStripMenuItem;
     }
 }
 

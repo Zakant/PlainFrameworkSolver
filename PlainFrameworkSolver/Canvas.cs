@@ -44,6 +44,8 @@ namespace PlainFrameworkSolver
             set { _gridEnabled = value; this.Invalidate(); }
         }
 
+        public ContextMenuStrip ContextMenue { get; set; }
+
         private bool _creatingBar = false;
         private PointF _mousePos = PointF.Empty;
         private Pen pGrid = new Pen(new SolidBrush(Color.FromArgb(50, 20, 20, 20)), 0.5f);
@@ -125,6 +127,17 @@ namespace PlainFrameworkSolver
         {
             KeyDown?.Invoke(this, e);
             base.OnKeyDown(e);
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            var args = (MouseEventArgs)e;
+            if (args.Button == MouseButtons.Right)
+            {
+                if (CurrentFramework.getElementAt(args.Location) is Node)
+                    ContextMenue.Show(this, args.Location);
+            }
+            base.OnClick(e);
         }
 
         protected void HandleFrameworkChanged(object sender, FrameworkChangedEventArgs e)
