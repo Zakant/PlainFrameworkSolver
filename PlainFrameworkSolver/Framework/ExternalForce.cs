@@ -13,7 +13,7 @@ namespace PlainFrameworkSolver.Framework
     public class ExternalForce : Force
     {
         private Node _target;
-        [Editor(typeof(ForceNodeEditor), typeof(UITypeEditor))]
+        // [Editor(typeof(ForceNodeEditor), typeof(UITypeEditor))]
         public Node Target
         {
             get { return _target; }

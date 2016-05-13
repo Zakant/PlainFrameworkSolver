@@ -94,6 +94,7 @@ namespace PlainFrameworkSolver
         {
             if (e.Button != MouseButtons.Left) return;
             CurrentFramework?.Select(CurrentFramework?.getElementAt(new Point2D(e.X, e.Y)));
+            this.Select();
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
@@ -137,6 +138,7 @@ namespace PlainFrameworkSolver
                 if (CurrentFramework.getElementAt(args.Location) is Node)
                 {
                     CurrentFramework.Select(CurrentFramework.getElementAt(args.Location));
+                    this.Select();
                     ContextMenue.Show(this, args.Location);
                 }
             }
