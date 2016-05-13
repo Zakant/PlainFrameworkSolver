@@ -46,6 +46,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.createFixedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createMovableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.solveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menueMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -93,7 +95,9 @@
             // bearbeitenToolStripMenuItem
             // 
             this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gridToolStripMenuItem});
+            this.gridToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.solveToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.bearbeitenToolStripMenuItem.Text = "Edit";
@@ -105,7 +109,7 @@
             this.gridToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.gridToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gridToolStripMenuItem.Image")));
             this.gridToolStripMenuItem.Name = "gridToolStripMenuItem";
-            this.gridToolStripMenuItem.Size = new System.Drawing.Size(130, 30);
+            this.gridToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.gridToolStripMenuItem.Text = "Grid";
             this.gridToolStripMenuItem.CheckedChanged += new System.EventHandler(this.gridToolStripMenuItem_CheckedChanged);
             // 
@@ -188,7 +192,7 @@
             this.createFixedToolStripMenuItem,
             this.createMovableToolStripMenuItem});
             this.canvasContextMenue.Name = "canvasContextMenue";
-            this.canvasContextMenue.Size = new System.Drawing.Size(286, 133);
+            this.canvasContextMenue.Size = new System.Drawing.Size(286, 100);
             // 
             // createForceToolStripMenuItem
             // 
@@ -215,6 +219,18 @@
             this.createMovableToolStripMenuItem.Size = new System.Drawing.Size(285, 30);
             this.createMovableToolStripMenuItem.Text = "Create Movable Bearing";
             this.createMovableToolStripMenuItem.Click += new System.EventHandler(this.createMovableToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(208, 6);
+            // 
+            // solveToolStripMenuItem
+            // 
+            this.solveToolStripMenuItem.Name = "solveToolStripMenuItem";
+            this.solveToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.solveToolStripMenuItem.Text = "Solve";
+            this.solveToolStripMenuItem.Click += new System.EventHandler(this.solveToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -260,6 +276,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem createFixedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createMovableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem solveToolStripMenuItem;
     }
 }
 

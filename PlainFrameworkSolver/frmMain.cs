@@ -116,5 +116,10 @@ namespace PlainFrameworkSolver
             yForce.Name = "By";
             CurrentFramework.AddElement(yForce);
         }
+
+        private void solveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+        }
     }
 }
