@@ -13,7 +13,7 @@ namespace PlainFrameworkSolver.Framework
     public class Bar : Force
     {
         private Node _nodeA;
-        [Editor(typeof(NodeEditor), typeof(UITypeEditor))]
+        [Editor(typeof(BarNodeEditor), typeof(UITypeEditor))]
         public Node NodeA
         {
             get { return _nodeA; }
@@ -21,7 +21,7 @@ namespace PlainFrameworkSolver.Framework
         }
 
         private Node _nodeB;
-        [Editor(typeof(NodeEditor), typeof(UITypeEditor))]
+        [Editor(typeof(BarNodeEditor), typeof(UITypeEditor))]
         public Node NodeB
         {
             get { return _nodeB; }

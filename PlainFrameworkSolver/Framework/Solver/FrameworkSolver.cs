@@ -25,18 +25,25 @@ namespace PlainFrameworkSolver.Framework.Solver
             Index = new FrameworkIndex(forces);
         }
 
-        public SquareMatrix CreateMatrix()
+        public LinearSystem CreateMatrix()
         {
             UpdateIndex();
-            var matrix = new SquareMatrix(Framework.Nodes.Count * 2 + 1);
+            int entryCount = Framework.Nodes.Count * 2;
+            var matrix = new SquareMatrix(entryCount);
+            var solutionVector = new double[entryCount];
             for (int i = 0; i < Framework.Nodes.Count; i++)
-                Framework.Nodes[i].CreateMatrixEntries(i * 2, Index);
-            return matrix;
+                Framework.Nodes[i].CreateMatrixEntries(matrix, solutionVector, i * 2, Index);
+            return new LinearSystem(matrix, solutionVector);
         }
 
-        public Dictionary<string, Rational> Solve()
+        public Dictionary<Force, double> Solve()
         {
-            throw new NotImplementedException();
+            var system = CreateMatrix();
+            var dic = new Dictionary<Force, double>();
+            var solution = system.Solve();
+            for (int i = 0; i < solution.Length; i++)
+                dic.Add(Index[i], solution[i]);
+            return dic;
         }
     }
 }

@@ -14,6 +14,8 @@ namespace PlainFrameworkSolver.Framework.Solver
         public Force this[int index] => _IntToElement[index];
         public int this[Force force] => _elementToInt[force];
 
+        public int Count => _elementToInt.Count;
+
         public FrameworkIndex(IList<Force> forces)
         {
             for (int i = 0; i < forces.Count; i++)
