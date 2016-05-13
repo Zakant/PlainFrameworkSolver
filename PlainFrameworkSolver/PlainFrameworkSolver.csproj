@@ -64,6 +64,7 @@
     <Compile Include="Framework\Solver\ForceSolverExtension.cs" />
     <Compile Include="Framework\Solver\FrameworkIndex.cs" />
     <Compile Include="Framework\Solver\FrameworkSolver.cs" />
+    <Compile Include="Framework\Solver\LinearSystem.cs" />
     <Compile Include="Framework\Solver\NodeSolverExtension.cs" />
     <Compile Include="frmCreateForce.cs">
       <SubType>Form</SubType>
@@ -84,8 +85,6 @@
     <Compile Include="MathUtils\IPolygon.cs" />
     <Compile Include="MathUtils\IVector.cs" />
     <Compile Include="MathUtils\Line3D.cs" />
-    <Compile Include="MathUtils\LinearEquation.cs" />
-    <Compile Include="MathUtils\LinearSystem.cs" />
     <Compile Include="MathUtils\MathHelper.cs" />
     <Compile Include="MathUtils\Matrix.cs" />
     <Compile Include="MathUtils\Matrix3x3.cs" />

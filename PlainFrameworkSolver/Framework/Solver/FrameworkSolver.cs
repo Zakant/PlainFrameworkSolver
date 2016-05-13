@@ -25,7 +25,7 @@ namespace PlainFrameworkSolver.Framework.Solver
             Index = new FrameworkIndex(forces);
         }
 
-        public SquareMatrix CreateMatrix()
+        public LinearSystem CreateMatrix()
         {
             UpdateIndex();
             int entryCount = Framework.Nodes.Count * 2;
@@ -33,12 +33,17 @@ namespace PlainFrameworkSolver.Framework.Solver
             var solutionVector = new double[entryCount];
             for (int i = 0; i < Framework.Nodes.Count; i++)
                 Framework.Nodes[i].CreateMatrixEntries(matrix, solutionVector, i * 2, Index);
-            return matrix;
+            return new LinearSystem(matrix, solutionVector);
         }
 
-        public Dictionary<string, Rational> Solve()
+        public Dictionary<Force, double> Solve()
         {
-            throw new NotImplementedException();
+            var system = CreateMatrix();
+            var dic = new Dictionary<Force, double>();
+            var solution = system.Solve();
+            for (int i = 0; i < solution.Length; i++)
+                dic.Add(Index[i], solution[i]);
+            return dic;
         }
     }
 }
