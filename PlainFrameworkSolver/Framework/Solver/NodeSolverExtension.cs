@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artentus.Utils.Math;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace PlainFrameworkSolver.Framework.Solver
     public static class NodeSolverExtension
     {
 
-        public static void CreateMatrixEntries(this Node node, int line, FrameworkIndex index)
+        public static void CreateMatrixEntries(this Node node, SquareMatrix matrix, int line, FrameworkIndex index)
         {
             
         }
