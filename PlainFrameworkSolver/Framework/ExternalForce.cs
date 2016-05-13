@@ -20,9 +20,15 @@ namespace PlainFrameworkSolver.Framework
         [DependsOn("ForceValue")]
         public override bool IsForceKnown => ForceValue != 0;
 
+        protected static Pen penBlue = new Pen(new SolidBrush(Color.Blue));
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            throw new NotImplementedException();
+            var start = Target.Position - Direction * 20;
+            var end = Target.Position - (Direction * Node.RADIUS);
+            var pen = IsSelected ? penRed : penBlue;
+
+            g.DrawLine(pen, start.ToPointF(), end.ToPointF());
+            // g.DrawLine(pen, end.ToPointF(), )
         }
     }
 }

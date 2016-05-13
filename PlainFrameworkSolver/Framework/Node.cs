@@ -9,7 +9,7 @@ namespace PlainFrameworkSolver.Framework
 {
     public class Node : FrameworkElement
     {
-        const float RADIUS = 2;
+        public const float RADIUS = 2;
 
         private Point2D _position;
         public Point2D Position
