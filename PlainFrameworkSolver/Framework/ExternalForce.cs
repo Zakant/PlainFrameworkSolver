@@ -22,7 +22,7 @@ namespace PlainFrameworkSolver.Framework
 
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
     }
 }

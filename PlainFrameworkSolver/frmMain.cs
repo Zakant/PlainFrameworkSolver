@@ -1,4 +1,5 @@
-﻿using PlainFrameworkSolver.Framework;
+﻿using Artentus.Utils.Math;
+using PlainFrameworkSolver.Framework;
 using PlainFrameworkSolver.Framework.Events;
 using PlainFrameworkSolver.Framework.Extensions;
 using PlainFrameworkSolver.Utils.Extensions;
@@ -97,6 +98,23 @@ namespace PlainFrameworkSolver
             var forceDialog = new frmCreateForce() { CurrentFramework = CurrentFramework };
             if (forceDialog.ShowDialog() == DialogResult.OK)
                 CurrentFramework.AddElement(forceDialog.ResultForce);
+        }
+
+        private void createFixedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var xForce = new ExternalForce() { Direction = Vector2.Right, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            xForce.Name = "Ax";
+            yForce.Name = "Ay";
+            CurrentFramework.AddElement(xForce);
+            CurrentFramework.AddElement(yForce);
+        }
+
+        private void createMovableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            yForce.Name = "By";
+            CurrentFramework.AddElement(yForce);
         }
     }
 }
