@@ -80,7 +80,8 @@ namespace PlainFrameworkSolver
         private void HandleKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
-                CurrentFramework.RemoveElement(CurrentFramework.Selected);
+                if (CurrentFramework?.Selected != null)
+                    CurrentFramework?.RemoveElement(CurrentFramework.Selected);
         }
 
         private void gridToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
