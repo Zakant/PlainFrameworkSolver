@@ -28,9 +28,11 @@ namespace PlainFrameworkSolver.Framework.Solver
         public SquareMatrix CreateMatrix()
         {
             UpdateIndex();
-            var matrix = new SquareMatrix(Framework.Nodes.Count * 2 + 1);
+            int entryCount = Framework.Nodes.Count * 2;
+            var matrix = new SquareMatrix(entryCount);
+            var solutionVector = new double[entryCount];
             for (int i = 0; i < Framework.Nodes.Count; i++)
-                Framework.Nodes[i].CreateMatrixEntries(i * 2, Index);
+                Framework.Nodes[i].CreateMatrixEntries(matrix, solutionVector, i * 2, Index);
             return matrix;
         }
 
