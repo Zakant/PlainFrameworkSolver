@@ -192,27 +192,27 @@ namespace Artentus
 
                 public static Point2D operator +(Point2D left, Point2D right)
                 {
-                    return Vector.Add(left, right);
+                    return new Point2D(left.X + right.X, left.Y + right.Y);
                 }
 
                 public static Point2D operator +(Point2D left, Vector2 right)
                 {
-                    return Vector.Add(left, right.As<Point2D>());
+                    return new Point2D(left.X + right.X, left.Y + right.Y);
                 }
 
                 public static Point2D operator -(Point2D left, Vector2 right)
                 {
-                    return Vector.Subtract(left, right.As<Point2D>());
+                    return new Vector2(left.X - right.X, left.Y - right.Y);
                 }
 
                 public static Vector2 operator -(Point2D left, Point2D right)
                 {
-                    return Vector.Subtract(left, right).As<Vector2>();
+                    return new Vector2(left.X - right.X, left.Y - right.Y);
                 }
 
                 public static Point2D operator -(Point2D value)
                 {
-                    return Vector.Negate(value);
+                    return new Point2D(-value.X, -value.Y);
                 }
 
                 public static implicit operator Point2D(PointF point)
