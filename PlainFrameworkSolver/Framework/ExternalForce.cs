@@ -26,12 +26,17 @@ namespace PlainFrameworkSolver.Framework
         protected static Pen penBlue = new Pen(new SolidBrush(Color.Blue));
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            var start = Target.Position - Direction * 20;
+            var start = Target.Position - Direction * 25;
             var end = Target.Position - (Direction * Node.RADIUS);
+            var orthogonal = Direction.CrossProduct.Normalize();
+            var arrow1 = Target.Position - Direction * 10 - orthogonal * 5;
+            var arrow2 = Target.Position - Direction * 10 + orthogonal * 5;
             var pen = IsSelected ? penRed : penBlue;
 
+
             g.DrawLine(pen, start.ToPointF(), end.ToPointF());
-            // g.DrawLine(pen, end.ToPointF(), )
+            g.DrawLine(pen, end.ToPointF(), arrow1.ToPointF());
+            g.DrawLine(pen, end.ToPointF(), arrow2.ToPointF());
         }
     }
 }
