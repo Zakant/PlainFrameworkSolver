@@ -120,7 +120,9 @@ namespace PlainFrameworkSolver
 
         private void solveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+            var resultDialog = new frmSolveResult();
+            resultDialog.Results = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+            resultDialog.Show(this);
         }
     }
 }

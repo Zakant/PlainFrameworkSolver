@@ -36,14 +36,14 @@ namespace PlainFrameworkSolver.Framework.Solver
             return new LinearSystem(matrix, solutionVector);
         }
 
-        public Dictionary<Force, double> Solve()
+        public List<ResultEntry> Solve()
         {
             var system = CreateMatrix();
-            var dic = new Dictionary<Force, double>();
+            var list = new List<ResultEntry>();
             var solution = system.Solve();
             for (int i = 0; i < solution.Length; i++)
-                dic.Add(Index[i], solution[i]);
-            return dic;
+                list.Add(new ResultEntry(Index[i], solution[i]));
+            return list;
         }
     }
 }

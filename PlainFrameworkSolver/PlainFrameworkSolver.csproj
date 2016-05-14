@@ -66,6 +66,7 @@
     <Compile Include="Framework\Solver\FrameworkSolver.cs" />
     <Compile Include="Framework\Solver\LinearSystem.cs" />
     <Compile Include="Framework\Solver\NodeSolverExtension.cs" />
+    <Compile Include="Framework\Solver\ResultEntry.cs" />
     <Compile Include="frmCreateForce.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,12 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Framework\IDrawable.cs" />
+    <Compile Include="frmSolveResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSolveResult.Designer.cs">
+      <DependentUpon>frmSolveResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="MathUtils\CirclePolygon.cs" />
     <Compile Include="MathUtils\CustomPolygon.cs" />
     <Compile Include="MathUtils\EllipsePolygon.cs" />
@@ -116,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSolveResult.resx">
+      <DependentUpon>frmSolveResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
