@@ -70,6 +70,7 @@ namespace PlainFrameworkSolver.Framework
             }
             element.PropertyChanged -= HandleElementPropertyChanged;
             RaiseFrameworkChanged(FrameworkChangedType.Removed, element);
+            if (element == Selected) Select(null);
         }
 
         public void AddElement(FrameworkElement element)

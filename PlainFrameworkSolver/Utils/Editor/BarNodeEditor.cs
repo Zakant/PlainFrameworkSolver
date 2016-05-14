@@ -23,10 +23,10 @@ namespace PlainFrameworkSolver.Utils.Editor
             var _editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
             var bar = (Bar)context.Instance;
             var framework = bar.HostFramework;
-            
+
             ListBox lb = new ListBox() { SelectionMode = SelectionMode.One };
-            lb.SelectedValueChanged += (s, e) => _editorService.CloseDropDown();
             lb.DisplayMember = "Name";
+            lb.SelectedValueChanged += (s, e) => _editorService.CloseDropDown();
 
             var editNode = context.PropertyDescriptor.GetValue(bar);
             var otherNode = bar.NodeA == editNode ? bar.NodeB : bar.NodeA;

@@ -1,6 +1,7 @@
 ﻿using Artentus.Utils.Math;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace PlainFrameworkSolver.Framework
             }
         }
 
+        [Browsable(false)]
         public List<Force> Forces { get; protected set; } = new List<Force>();
 
         public Node()
