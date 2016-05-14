@@ -47,6 +47,11 @@ namespace PlainFrameworkSolver.Framework
             NodeB = nodeB;
         }
 
+        public override string ToString()
+        {
+            return $"{Name} (Bar)";
+        }
+
         public override void Draw(Graphics g, Rectangle boundary)
         {
             g.DrawLine(IsSelected ? penRed : penBlack, NodeA.Position.ToPointF(), NodeB.Position.ToPointF());

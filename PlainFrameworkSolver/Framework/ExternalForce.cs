@@ -23,7 +23,13 @@ namespace PlainFrameworkSolver.Framework
         [DependsOn("ForceValue")]
         public override bool IsForceKnown => ForceValue != 0;
 
-        protected static Pen penBlue = new Pen(new SolidBrush(Color.Blue));
+        public override string ToString()
+        {
+            return $"{Name} (External Force)";
+        }
+
+        protected static Brush bBlue = new SolidBrush(Color.Blue);
+        protected static Pen penBlue = new Pen(bBlue);
         public override void Draw(Graphics g, Rectangle boundary)
         {
             var start = Target.Position - Direction * 25;
@@ -37,6 +43,8 @@ namespace PlainFrameworkSolver.Framework
             g.DrawLine(pen, start.ToPointF(), end.ToPointF());
             g.DrawLine(pen, end.ToPointF(), arrow1.ToPointF());
             g.DrawLine(pen, end.ToPointF(), arrow2.ToPointF());
+
+            g.DrawString(Name, font, bBlue, start.ToPointF());
         }
     }
 }
