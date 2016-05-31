@@ -114,7 +114,7 @@ namespace PlainFrameworkSolver
             {
                 var node = CurrentFramework?.Selected as Node;
                 if (node == null) return;
-                node.Position = translatePoint(e.Location);
+                node.Position.Assign( translatePoint(e.Location));
             }
             else
             {

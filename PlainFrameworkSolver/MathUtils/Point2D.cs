@@ -14,7 +14,7 @@ namespace Artentus
         namespace Math
         {
             [TypeConverter(typeof(Point2DConverter))]
-            public struct Point2D : IVector, INotifyPropertyChanged
+            public class Point2D : IVector, INotifyPropertyChanged
             {
                 public static Point2D Zero => new Point2D(0, 0);
 
@@ -75,7 +75,6 @@ namespace Artentus
                 /// Erstellt einen neuen Point2D.
                 /// </summary>
                 public Point2D(double x, double y)
-                    : this()
                 {
                     X = x;
                     Y = y;
@@ -85,7 +84,6 @@ namespace Artentus
                 /// Erstellt einen neuen Point2D.
                 /// </summary>
                 public Point2D(Point2D p)
-                    : this()
                 {
                     X = p.X;
                     Y = p.Y;
@@ -95,7 +93,6 @@ namespace Artentus
                 /// Erstellt einen neuen Point2D.
                 /// </summary>
                 public Point2D(Point p)
-                    : this()
                 {
                     X = p.X;
                     Y = p.Y;
@@ -105,11 +102,12 @@ namespace Artentus
                 /// Erstellt einen neuen Point2D.
                 /// </summary>
                 public Point2D(PointF p)
-                    : this()
                 {
                     X = p.X;
                     Y = p.Y;
                 }
+
+                public Point2D() : this(0, 0) { }
 
                 /// <summary>
                 /// Gibt das Kreuzprodukt dieses Vektors zurück.
@@ -154,6 +152,17 @@ namespace Artentus
                 public double DistanceTo(Point2D other)
                 {
                     return System.Math.Abs((this - other).Length);
+                }
+
+                /// <summary>
+                /// Weißt diesem Punkt die Werte eines anderen Punktes zu.
+                /// </summary>
+                /// <returns>Diesen Punkt.</returns>
+                public Point2D Assign(Point2D other)
+                {
+                    X = other.X;
+                    Y = other.Y;
+                    return this;
                 }
 
                 public override string ToString()
