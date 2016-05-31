@@ -23,6 +23,8 @@ namespace PlainFrameworkSolver
         protected TreeNode barsNode = new TreeNode("Bars");
         protected TreeNode forcesNode = new TreeNode("Forces");
 
+        protected frmSolveResult _resutlForm = null;
+
         public frmMain()
         {
             InitializeComponent();
@@ -68,6 +70,7 @@ namespace PlainFrameworkSolver
         public void FrameworkPropertyChangedHandler(object sender, PropertyChangedEventArgs args)
         {
             canvas.Invalidate();
+            _resutlForm?.UpdateDataGridView();
         }
 
         private void tvFramework_AfterSelect(object sender, TreeViewEventArgs e)
@@ -120,9 +123,9 @@ namespace PlainFrameworkSolver
 
         private void solveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var resultDialog = new frmSolveResult();
-            resultDialog.Results = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
-            resultDialog.Show(this);
+            if (_resutlForm == null || _resutlForm.IsDisposed) _resutlForm = new frmSolveResult();
+            _resutlForm.Results = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+            _resutlForm.Show(this);
         }
     }
 }

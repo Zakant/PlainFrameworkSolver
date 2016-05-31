@@ -29,6 +29,7 @@ namespace PlainFrameworkSolver
 
         public void UpdateDataGridView()
         {
+            if (Results == null) return;
             dgvResult.DataSource = new BindingList<ResultEntry>(Results);
             dgvResult.Invalidate();
         }
