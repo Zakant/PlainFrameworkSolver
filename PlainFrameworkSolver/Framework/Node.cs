@@ -8,6 +8,7 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public class Node : FrameworkElement
     {
         public const float RADIUS = 2;

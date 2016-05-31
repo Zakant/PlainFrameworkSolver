@@ -8,6 +8,7 @@ using System.ComponentModel;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public abstract class Force : FrameworkElement
     {
         private double _forceValue;

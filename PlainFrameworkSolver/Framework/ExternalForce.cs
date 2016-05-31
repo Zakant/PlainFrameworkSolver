@@ -10,6 +10,7 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public class ExternalForce : Force
     {
         private Node _target;

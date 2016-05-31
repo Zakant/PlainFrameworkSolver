@@ -10,6 +10,7 @@ using Artentus.Utils.Math;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public class Bar : Force
     {
         private Node _nodeA;

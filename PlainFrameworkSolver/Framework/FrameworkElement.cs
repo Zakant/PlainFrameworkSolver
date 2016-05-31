@@ -8,6 +8,7 @@ using System.Text;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public abstract class FrameworkElement : NotifyPropertyChangedBase, IDrawable
     {
         private string _name;

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace PlainFrameworkSolver.Framework
 {
+    [Serializable]
     public class PlainFramework : IDrawable, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
