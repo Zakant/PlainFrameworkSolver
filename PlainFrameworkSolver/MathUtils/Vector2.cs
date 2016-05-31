@@ -13,6 +13,7 @@ namespace Artentus
             /// <summary>
             /// Ein zweidimensionaler Vektor.
             /// </summary>
+            [Serializable]
             public struct Vector2 : IVector
             {
                 /// <summary>

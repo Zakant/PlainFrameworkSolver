@@ -14,6 +14,7 @@ namespace Artentus
         namespace Math
         {
             [TypeConverter(typeof(Point2DConverter))]
+            [Serializable]
             public class Point2D : IVector, INotifyPropertyChanged
             {
                 public static Point2D Zero => new Point2D(0, 0);
