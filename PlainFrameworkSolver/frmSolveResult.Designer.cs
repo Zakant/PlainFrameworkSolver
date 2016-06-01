@@ -47,6 +47,7 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.Size = new System.Drawing.Size(284, 261);
             this.dgvResult.TabIndex = 0;
+            this.dgvResult.SelectionChanged += new System.EventHandler(this.dgvResult_SelectionChanged);
             // 
             // Force
             // 

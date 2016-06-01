@@ -115,6 +115,7 @@
     <Compile Include="Utils\Converter\Point2DConverter.cs" />
     <Compile Include="Utils\Editor\BarNodeEditor.cs" />
     <Compile Include="Utils\Editor\ForceNodeEditor.cs" />
+    <Compile Include="Utils\Events\DataGridViewSelectionChangedEventArgs.cs" />
     <Compile Include="Utils\Extensions\TreeViewExtensions.cs" />
     <Compile Include="Utils\PropertyChanged\DependsOnAttribute.cs" />
     <Compile Include="Utils\PropertyChanged\NotifyPropertyChangedBase.cs" />
@@ -157,6 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AppearanceTabGrid_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Framework\Export\" />
+    <Folder Include="Framework\Import\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -47,6 +47,7 @@ namespace PlainFrameworkSolver
         {
             this.propertyGrid.SelectedObject = CurrentFramework.Selected;
             tvFramework.SelectedNode = tvFramework.SelectNode<FrameworkTreeNode>(x => x.Element == CurrentFramework.Selected);
+            _resutlForm?.SelectFrameworkElement(CurrentFramework.Selected);
         }
 
         public void FrameworkChangedHanlder(object sender, FrameworkChangedEventArgs e)
@@ -121,9 +122,10 @@ namespace PlainFrameworkSolver
             CurrentFramework.AddElement(yForce);
         }
 
-        private void solveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void solveToolStripMenuItem_Click(object sender, EventArgs args)
         {
             if (_resutlForm == null || _resutlForm.IsDisposed) _resutlForm = new frmSolveResult();
+            _resutlForm.SelectionChanged += (s, e) => CurrentFramework.Select(e.Force);
             _resutlForm.Results = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
             _resutlForm.Show(this);
         }
