@@ -114,11 +114,18 @@ namespace PlainFrameworkSolver
             CurrentFramework.AddElement(yForce);
         }
 
-        private void createMovableToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
             yForce.Name = "By";
             CurrentFramework.AddElement(yForce);
+        }
+
+        private void createHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var xForce = new ExternalForce() { Direction = Vector2.Right, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            xForce.Name = "Cx";
+            CurrentFramework.AddElement(xForce);
         }
 
         private void solveToolStripMenuItem_Click(object sender, EventArgs e)

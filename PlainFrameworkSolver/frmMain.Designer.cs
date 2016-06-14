@@ -46,7 +46,8 @@
             this.createForceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.createFixedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createMovableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createHorizontalBearingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvas = new PlainFrameworkSolver.Canvas();
             this.menueMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -65,7 +66,8 @@
             this.bearbeitenToolStripMenuItem});
             this.menueMain.Location = new System.Drawing.Point(0, 0);
             this.menueMain.Name = "menueMain";
-            this.menueMain.Size = new System.Drawing.Size(594, 24);
+            this.menueMain.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menueMain.Size = new System.Drawing.Size(891, 35);
             this.menueMain.TabIndex = 0;
             this.menueMain.Text = "menuStrip1";
             // 
@@ -75,19 +77,19 @@
             this.toolStripSeparator1,
             this.beendenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.dateiToolStripMenuItem.Text = "File";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Image = global::PlainFrameworkSolver.Properties.Resources.CloseImage;
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.beendenToolStripMenuItem.Text = "Close";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -98,7 +100,7 @@
             this.toolStripSeparator3,
             this.solveToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.bearbeitenToolStripMenuItem.Text = "Edit";
             // 
             // gridToolStripMenuItem
@@ -108,19 +110,19 @@
             this.gridToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.gridToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gridToolStripMenuItem.Image")));
             this.gridToolStripMenuItem.Name = "gridToolStripMenuItem";
-            this.gridToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.gridToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.gridToolStripMenuItem.Text = "Grid";
             this.gridToolStripMenuItem.CheckedChanged += new System.EventHandler(this.gridToolStripMenuItem_CheckedChanged);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(99, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(137, 6);
             // 
             // solveToolStripMenuItem
             // 
             this.solveToolStripMenuItem.Name = "solveToolStripMenuItem";
-            this.solveToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.solveToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
             this.solveToolStripMenuItem.Text = "Solve";
             this.solveToolStripMenuItem.Click += new System.EventHandler(this.solveToolStripMenuItem_Click);
             // 
@@ -129,22 +131,24 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 308F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.canvas, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 35);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(594, 487);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(891, 751);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(392, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(587, 5);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -155,16 +159,18 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.propertyGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(199, 481);
-            this.splitContainer1.SplitterDistance = 249;
+            this.splitContainer1.Size = new System.Drawing.Size(300, 741);
+            this.splitContainer1.SplitterDistance = 383;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
             // 
             // tvFramework
             // 
             this.tvFramework.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvFramework.Location = new System.Drawing.Point(0, 0);
+            this.tvFramework.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvFramework.Name = "tvFramework";
-            this.tvFramework.Size = new System.Drawing.Size(199, 249);
+            this.tvFramework.Size = new System.Drawing.Size(300, 383);
             this.tvFramework.TabIndex = 0;
             this.tvFramework.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvFramework_AfterSelect);
             this.tvFramework.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleKeyDown);
@@ -173,9 +179,10 @@
             // 
             this.propertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGrid.Location = new System.Drawing.Point(0, 0);
-            this.propertyGrid.MinimumSize = new System.Drawing.Size(0, 200);
+            this.propertyGrid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.propertyGrid.MinimumSize = new System.Drawing.Size(0, 308);
             this.propertyGrid.Name = "propertyGrid";
-            this.propertyGrid.Size = new System.Drawing.Size(199, 228);
+            this.propertyGrid.Size = new System.Drawing.Size(300, 352);
             this.propertyGrid.TabIndex = 0;
             // 
             // canvasContextMenue
@@ -185,35 +192,43 @@
             this.createForceToolStripMenuItem,
             this.toolStripSeparator2,
             this.createFixedToolStripMenuItem,
-            this.createMovableToolStripMenuItem});
+            this.createVerticalToolStripMenuItem,
+            this.createHorizontalBearingToolStripMenuItem});
             this.canvasContextMenue.Name = "canvasContextMenue";
-            this.canvasContextMenue.Size = new System.Drawing.Size(201, 76);
+            this.canvasContextMenue.Size = new System.Drawing.Size(299, 163);
             // 
             // createForceToolStripMenuItem
             // 
             this.createForceToolStripMenuItem.Name = "createForceToolStripMenuItem";
-            this.createForceToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.createForceToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
             this.createForceToolStripMenuItem.Text = "Create Force";
             this.createForceToolStripMenuItem.Click += new System.EventHandler(this.createForceToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(295, 6);
             // 
             // createFixedToolStripMenuItem
             // 
             this.createFixedToolStripMenuItem.Name = "createFixedToolStripMenuItem";
-            this.createFixedToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.createFixedToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
             this.createFixedToolStripMenuItem.Text = "Create Fixed Bearing";
             this.createFixedToolStripMenuItem.Click += new System.EventHandler(this.createFixedToolStripMenuItem_Click);
             // 
-            // createMovableToolStripMenuItem
+            // createVerticalToolStripMenuItem
             // 
-            this.createMovableToolStripMenuItem.Name = "createMovableToolStripMenuItem";
-            this.createMovableToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.createMovableToolStripMenuItem.Text = "Create Movable Bearing";
-            this.createMovableToolStripMenuItem.Click += new System.EventHandler(this.createMovableToolStripMenuItem_Click);
+            this.createVerticalToolStripMenuItem.Name = "createVerticalToolStripMenuItem";
+            this.createVerticalToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
+            this.createVerticalToolStripMenuItem.Text = "Create Vertical Bearing";
+            this.createVerticalToolStripMenuItem.Click += new System.EventHandler(this.createVerticalToolStripMenuItem_Click);
+            // 
+            // createHorizontalBearingToolStripMenuItem
+            // 
+            this.createHorizontalBearingToolStripMenuItem.Name = "createHorizontalBearingToolStripMenuItem";
+            this.createHorizontalBearingToolStripMenuItem.Size = new System.Drawing.Size(298, 30);
+            this.createHorizontalBearingToolStripMenuItem.Text = "Create Horizontal Bearing";
+            this.createHorizontalBearingToolStripMenuItem.Click += new System.EventHandler(this.createHorizontalToolStripMenuItem_Click);
             // 
             // canvas
             // 
@@ -222,20 +237,22 @@
             this.canvas.CurrentFramework = null;
             this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.canvas.GridEnabled = true;
-            this.canvas.Location = new System.Drawing.Point(3, 3);
+            this.canvas.Location = new System.Drawing.Point(4, 5);
+            this.canvas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(383, 481);
+            this.canvas.Size = new System.Drawing.Size(575, 741);
             this.canvas.TabIndex = 0;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 511);
+            this.ClientSize = new System.Drawing.Size(891, 786);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menueMain);
             this.MainMenuStrip = this.menueMain;
-            this.MinimumSize = new System.Drawing.Size(374, 324);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(550, 468);
             this.Name = "frmMain";
             this.Text = "Plain Framework Solver";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -269,9 +286,10 @@
         private System.Windows.Forms.ToolStripMenuItem createForceToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem createFixedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createMovableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createVerticalToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem solveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createHorizontalBearingToolStripMenuItem;
     }
 }
 
