@@ -107,7 +107,7 @@ namespace PlainFrameworkSolver
         private void createFixedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var xForce = new ExternalForce() { Direction = Vector2.Right, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
-            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            var yForce = new ExternalForce() { Direction = Vector2.Up, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
             xForce.Name = "Ax";
             yForce.Name = "Ay";
             CurrentFramework.AddElement(xForce);
@@ -116,7 +116,7 @@ namespace PlainFrameworkSolver
 
         private void createVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            var yForce = new ExternalForce() { Direction = Vector2.Up, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
             yForce.Name = "By";
             CurrentFramework.AddElement(yForce);
         }

@@ -42,7 +42,7 @@ namespace PlainFrameworkSolver.Framework.Solver
             var list = new List<ResultEntry>();
             var solution = system.Solve();
             for (int i = 0; i < solution.Length; i++)
-                list.Add(new ResultEntry(Index[i], Math.Round(solution[i], 3)));
+                list.Add(new ResultEntry(Index[i], Math.Round(-solution[i], 3)));
             return list;
         }
     }
