@@ -126,7 +126,9 @@ namespace PlainFrameworkSolver
         {
             if (_resutlForm == null || _resutlForm.IsDisposed) _resutlForm = new frmSolveResult();
             _resutlForm.SelectionChanged += (s, e) => CurrentFramework.Select(e.Force);
-            _resutlForm.Results = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+            var result = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
+            if (result == null) return;
+            _resutlForm.Results = result;
             _resutlForm.Show(this);
         }
     }

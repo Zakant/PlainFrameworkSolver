@@ -56,10 +56,12 @@
     <Compile Include="Framework\Events\FrameworkChangedEventArgs.cs" />
     <Compile Include="Framework\Events\FrameworkChangedType.cs" />
     <Compile Include="Framework\Events\FrameworkSelectedElementChangedEventArgs.cs" />
+    <Compile Include="Framework\Export\BasicExport.cs" />
     <Compile Include="Framework\Extensions\FrameworkTreeNode.cs" />
     <Compile Include="Framework\Force.cs" />
     <Compile Include="Framework\ExternalForce.cs" />
     <Compile Include="Framework\FrameworkElement.cs" />
+    <Compile Include="Framework\Import\BasicImport.cs" />
     <Compile Include="Framework\PlainFramework.cs" />
     <Compile Include="Framework\Solver\ForceSolverExtension.cs" />
     <Compile Include="Framework\Solver\FrameworkIndex.cs" />
@@ -159,10 +161,7 @@
   <ItemGroup>
     <None Include="Resources\AppearanceTabGrid_16x.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Framework\Export\" />
-    <Folder Include="Framework\Import\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

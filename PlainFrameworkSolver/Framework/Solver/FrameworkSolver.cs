@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PlainFrameworkSolver.Framework.Solver
 {
@@ -40,7 +41,16 @@ namespace PlainFrameworkSolver.Framework.Solver
         {
             var system = CreateMatrix();
             var list = new List<ResultEntry>();
-            var solution = system.Solve();
+            double[] solution;
+            try
+            {
+                solution = system.Solve();
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Cannot solve this system!", "Cannot not solve!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
             for (int i = 0; i < solution.Length; i++)
                 list.Add(new ResultEntry(Index[i], solution[i]));
             return list;
