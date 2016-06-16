@@ -108,21 +108,28 @@ namespace PlainFrameworkSolver
         private void createFixedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var xForce = new ExternalForce() { Direction = Vector2.Right, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
-            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            var yForce = new ExternalForce() { Direction = Vector2.Up, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
             xForce.Name = "Ax";
             yForce.Name = "Ay";
             CurrentFramework.AddElement(xForce);
             CurrentFramework.AddElement(yForce);
         }
 
-        private void createMovableToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var yForce = new ExternalForce() { Direction = Vector2.Down, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            var yForce = new ExternalForce() { Direction = Vector2.Up, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
             yForce.Name = "By";
             CurrentFramework.AddElement(yForce);
         }
 
-        private void solveToolStripMenuItem_Click(object sender, EventArgs args)
+        private void createHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var xForce = new ExternalForce() { Direction = Vector2.Right, ForceValue = 0, Target = (Node)CurrentFramework.Selected };
+            xForce.Name = "Cx";
+            CurrentFramework.AddElement(xForce);
+        }
+
+        private void solveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_resutlForm == null || _resutlForm.IsDisposed) _resutlForm = new frmSolveResult();
             _resutlForm.SelectionChanged += (s, e) => CurrentFramework.Select(e.Force);

@@ -33,11 +33,13 @@ namespace PlainFrameworkSolver.Framework
         protected static Pen penBlue = new Pen(bBlue);
         public override void Draw(Graphics g, Rectangle boundary)
         {
-            var start = Target.Position - Direction * 25;
-            var end = Target.Position - (Direction * Node.RADIUS);
-            var orthogonal = Direction.CrossProduct.Normalize();
-            var arrow1 = Target.Position - Direction * 10 - orthogonal * 5;
-            var arrow2 = Target.Position - Direction * 10 + orthogonal * 5;
+            var invertDirection = new Vector2(Direction.X, -Direction.Y);
+
+            var start = Target.Position - invertDirection * 25;
+            var end = Target.Position - (invertDirection * Node.RADIUS);
+            var orthogonal = invertDirection.CrossProduct.Normalize();
+            var arrow1 = Target.Position - invertDirection * 10 - orthogonal * 5;
+            var arrow2 = Target.Position - invertDirection * 10 + orthogonal * 5;
             var pen = IsSelected ? penRed : penBlue;
 
 
