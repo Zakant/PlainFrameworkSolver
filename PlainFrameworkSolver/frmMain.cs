@@ -132,7 +132,7 @@ namespace PlainFrameworkSolver
         private void solveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_resutlForm == null || _resutlForm.IsDisposed) _resutlForm = new frmSolveResult();
-            _resutlForm.SelectionChanged += (s, e) => CurrentFramework.Select(e.Force);
+            _resutlForm.SelectionChanged += (s, a) => CurrentFramework.Select(a.Force);
             var result = (new Framework.Solver.FrameworkSolver(CurrentFramework)).Solve();
             if (result == null) return;
             _resutlForm.Results = result;
